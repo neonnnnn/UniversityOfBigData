@@ -6,7 +6,7 @@ cffi==1.15.1
 charset-normalizer==2.1.0
 cryptography==37.0.4
 defusedxml==0.7.1
-Django==4.2.9
+Django==4.2.29
 django-apscheduler==0.6.2
 django-bootstrap5==21.3
 django-cleanup==6.0.0
