@@ -1,13 +1,13 @@
+import logging
+
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.validators import ASCIIUsernameValidator
-from django.db import Error
-from django.http import Http404
 from django.core.mail import send_mail
-from django.db import models
+from django.db import Error, models
+from django.http import Http404
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-import logging
 
 
 class UserManager(BaseUserManager):

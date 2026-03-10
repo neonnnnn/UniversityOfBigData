@@ -1,7 +1,7 @@
 import datetime
-from django.utils import timezone
 
 from competitions.models import CompetitionPost
+from django.utils import timezone
 
 
 def count_daily_submissions(user, competition):

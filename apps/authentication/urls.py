@@ -1,9 +1,10 @@
-from django.urls import path
-from django.contrib.auth.views import LoginView, LogoutView
-from django.utils.translation import gettext_lazy as _
-from universityofbigdata.utils import access_recorded
 from authentication import views
 from authentication.views import logger
+from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import path
+from django.utils.translation import gettext_lazy as _
+
+from universityofbigdata.utils import access_recorded
 
 urlpatterns = [
     path(

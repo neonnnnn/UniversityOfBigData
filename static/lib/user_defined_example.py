@@ -1,7 +1,8 @@
 """My custom metric."""
 
-from .metric_base import CSVSubmissionMetric
 from django.utils.translation import gettext_lazy as _
+
+from .metric_base import CSVSubmissionMetric
 
 
 class MyMetric(CSVSubmissionMetric):

@@ -1,9 +1,9 @@
+from competitions import views
+from competitions.views import logger
 from django.urls import path
 from django.utils.translation import gettext_lazy as _
 
 from universityofbigdata.utils import access_recorded
-from competitions import views
-from competitions.views import logger
 
 app_name = "Competitions"
 

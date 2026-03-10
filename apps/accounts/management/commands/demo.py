@@ -1,29 +1,29 @@
 """デモ用コマンド."""
 
 import logging
-from typing import List
 import random
+import shutil
 import time
 from datetime import timedelta
 from threading import Thread
-from django.core.management.base import BaseCommand
-from django.contrib.auth import get_user_model
-from django.core.files.uploadedfile import SimpleUploadedFile
-from django.test import Client
-from django.urls import reverse
-from django.utils import timezone
-from random_word import RandomWords
+from typing import List
 
 import numpy as np
-import shutil
-
 from accounts.models import TeamTag
+from competitions.management.commands.runapscheduler import setplan01
 from competitions.models import CompetitionModel, CompetitionPost
 from discussion.models import (
     Discussion,
     DiscussionPost,
 )
-from competitions.management.commands.runapscheduler import setplan01
+from django.contrib.auth import get_user_model
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.core.management.base import BaseCommand
+from django.test import Client
+from django.urls import reverse
+from django.utils import timezone
+from random_word import RandomWords
+
 from universityofbigdata.settings import BASE_DIR
 
 logger = logging.getLogger(__name__)

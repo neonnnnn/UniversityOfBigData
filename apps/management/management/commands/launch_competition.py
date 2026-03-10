@@ -1,27 +1,25 @@
 """コンペティションを作成するコマンド."""
 
-from typing import Tuple, List
 import logging
-from argparse import ArgumentParser
-from tempfile import TemporaryDirectory
-from pathlib import Path
 import shutil
-
-from datasets import load_dataset
-from tqdm import tqdm
-from pytimeparse.timeparse import timeparse
-
+from argparse import ArgumentParser
 from datetime import datetime, timedelta
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from typing import List, Tuple
+
+import numpy as np
+import pandas as pd
+from competitions.management.commands.runapscheduler import setplan01
+from datasets import load_dataset
+from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
+from django.test import Client
 from django.urls import reverse
 from django.utils import timezone
-from django.test import Client
-from django.contrib.auth import get_user_model
+from pytimeparse.timeparse import timeparse
+from tqdm import tqdm
 
-import pandas as pd
-import numpy as np
-
-from competitions.management.commands.runapscheduler import setplan01
 from static.lib import metrics
 
 logger = logging.getLogger(__name__)
@@ -39,50 +37,62 @@ COMPETITION_PARAMS = {
         "title": "Digit Recognizer",
         "abstract": "Image classification with MNIST, handwritten digit databese",
         "task": "classification",
-        "description": "The MNIST dataset consists of 70,000 28x28 black-and-white images of handwritten digits extracted from two NIST databases. There are 60,000 images in the training dataset and 10,000 images in the validation dataset, one class per digit so a total of 10 classes, with 7,000 images (6,000 train images and 1,000 test images) per class. Half of the image were drawn by Census Bureau employees and the other half by high school students (this split is evenly distributed in the training and testing sets).\n\nThis description was cited from https://huggingface.co/datasets/mnist/blob/main/README.md#dataset-summary.",
+        "description": (
+            "The MNIST dataset consists of 70,000 28x28 black-and-white images of handwritten digits extracted from two NIST databases. There are 60,000 images in the training dataset and 10,000 images in the validation dataset, one class per digit so a total of 10 classes, with 7,000 images (6,000 train images and 1,000 test images) per class. Half of the image were drawn by Census Bureau employees and the other half by high school students (this split is evenly distributed in the training and testing sets).\n\nThis description was cited from https://huggingface.co/datasets/mnist/blob/main/README.md#dataset-summary."
+        ),
         "target_features": ["label"],
     },
     "titanic": {
         "title": "Titanic - Machine Learning from Disaster",
         "abstract": "Predict survival on the Titanic",
         "task": "classification",
-        "description": """The sinking of the Titanic is one of the most infamous shipwrecks in history.\n\n"""
-        """On April 15, 1912, during her maiden voyage, the widely considered “unsinkable” RMS Titanic sank after colliding with an iceberg. Unfortunately, there weren’t enough lifeboats for everyone on board, resulting in the death of 1502 out of 2224 passengers and crew.\n\n"""
-        """While there was some element of luck involved in surviving, it seems some groups of people were more likely to survive than others.\n\n"""
-        """In this challenge, we ask you to build a predictive model that answers the question: “what sorts of people were more likely to survive?” using passenger data (ie name, age, gender, socio-economic class, etc).\n\n"""
-        """This description was cited from https://www.kaggle.com/datasets/yasserh/titanic-dataset.""",
+        "description": (
+            """The sinking of the Titanic is one of the most infamous shipwrecks in history.\n\n"""
+            """On April 15, 1912, during her maiden voyage, the widely considered “unsinkable” RMS Titanic sank after colliding with an iceberg. Unfortunately, there weren’t enough lifeboats for everyone on board, resulting in the death of 1502 out of 2224 passengers and crew.\n\n"""
+            """While there was some element of luck involved in surviving, it seems some groups of people were more likely to survive than others.\n\n"""
+            """In this challenge, we ask you to build a predictive model that answers the question: “what sorts of people were more likely to survive?” using passenger data (ie name, age, gender, socio-economic class, etc).\n\n"""
+            """This description was cited from https://www.kaggle.com/datasets/yasserh/titanic-dataset."""
+        ),
         "target_features": ["Survived"],
     },
     "iris": {
         "title": "Iris Species",
         "abstract": "Classify iris plants into three species in the Iris dataset",
         "task": "classification",
-        "description": """The Iris dataset was used in R.A. Fisher's classic 1936 paper, The Use of Multiple Measurements in Taxonomic Problems, and can also be found on the UCI Machine Learning Repository.\n\n"""
-        """It includes three iris species with 50 samples each as well as some properties about each flower. One flower species is linearly separable from the other two, but the other two are not linearly separable from each other.\n\n"""
-        """The columns in this dataset are:\n\n"""
-        """- Id\n"""
-        """- SepalLengthCm\n"""
-        """- SepalWidthCm\n"""
-        """- PetalLengthCm\n"""
-        """- PetalWidthCm\n"""
-        """- Species\n\n"""
-        """This description was cited from https://huggingface.co/datasets/hitorilabs/iris.""",
+        "description": (
+            """The Iris dataset was used in R.A. Fisher's classic 1936 paper, The Use of Multiple Measurements in Taxonomic Problems, and can also be found on the UCI Machine Learning Repository.\n\n"""
+            """It includes three iris species with 50 samples each as well as some properties about each flower. One flower species is linearly separable from the other two, but the other two are not linearly separable from each other.\n\n"""
+            """The columns in this dataset are:\n\n"""
+            """- Id\n"""
+            """- SepalLengthCm\n"""
+            """- SepalWidthCm\n"""
+            """- PetalLengthCm\n"""
+            """- PetalWidthCm\n"""
+            """- Species\n\n"""
+            """This description was cited from https://huggingface.co/datasets/hitorilabs/iris."""
+        ),
         "target_features": ["species"],
     },
     "wine": {
         "title": "Wine Quality Data",
-        "abstract": "Predict quality and color from various chemical properties of wine",
+        "abstract": (
+            "Predict quality and color from various chemical properties of wine"
+        ),
         "task": "classification",
-        "description": """This data set contains various chemical properties of wine, such as acidity, sugar, pH, and alcohol. It also contains a quality metric (3-9, with highest being better) and a color (red or white).""",
+        "description": (
+            """This data set contains various chemical properties of wine, such as acidity, sugar, pH, and alcohol. It also contains a quality metric (3-9, with highest being better) and a color (red or white)."""
+        ),
         "target_features": ["quality", "is_red"],
     },
     "auto-mpg": {
         "title": "Auto Miles per Gallon (MPG)",
         "abstract": "Predict Miles per Gallon (MPG) in various properties of cars",
         "task": "regression",
-        "description": """This dataset is a slightly modified version of the dataset provided in the StatLib library. In line with the use by Ross Quinlan (1993) in predicting the attribute "mpg", 8 of the original instances were removed because they had unknown values for the "mpg" attribute. The original dataset is available in the file "auto-mpg.data-original".\n\n"""
-        """"The data concerns city-cycle fuel consumption in miles per gallon, to be predicted in terms of 3 multivalued discrete and 5 continuous attributes." (Quinlan, 1993)"""
-        """This description was cited from https://huggingface.co/datasets/scikit-learn/auto-mpg""",
+        "description": (
+            """This dataset is a slightly modified version of the dataset provided in the StatLib library. In line with the use by Ross Quinlan (1993) in predicting the attribute "mpg", 8 of the original instances were removed because they had unknown values for the "mpg" attribute. The original dataset is available in the file "auto-mpg.data-original".\n\n"""
+            """"The data concerns city-cycle fuel consumption in miles per gallon, to be predicted in terms of 3 multivalued discrete and 5 continuous attributes." (Quinlan, 1993)"""
+            """This description was cited from https://huggingface.co/datasets/scikit-learn/auto-mpg"""
+        ),
         "target_features": ["mpg"],
     },
     "none": {

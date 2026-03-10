@@ -1,5 +1,5 @@
-from django.core.management.base import BaseCommand
 from accounts.models import User
+from django.core.management.base import BaseCommand
 
 # https://qiita.com/ekzemplaro/items/e97bf9aa778bfddd4cec
 

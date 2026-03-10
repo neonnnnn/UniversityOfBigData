@@ -1,16 +1,17 @@
 """Implements in static dir."""
 
 import logging
+
 from .metric_base import (
-    MSE,
+    F1,
     MAE,
+    MSE,
     RMSE,
     ROCAUC,
     Accuracy,
-    Recall,
-    Precision,
-    F1,
     ExactMatchRatio,
+    Precision,
+    Recall,
 )
 
 logger = logging.getLogger(__name__)

@@ -1,7 +1,8 @@
+from accounts import views
 from django.contrib.auth.views import LogoutView
 from django.urls import path
 from django.utils.translation import gettext_lazy as _
-from accounts import views
+
 from universityofbigdata.utils import access_recorded
 
 urlpatterns = [

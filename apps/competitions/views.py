@@ -1,16 +1,18 @@
-from django.http import Http404
-from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView, DetailView
-from django.views.generic.edit import FormMixin
-from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import CompetitionModel, CompetitionPost
-from .forms import CompetitionPostCreateForm
-from django.urls import reverse_lazy
-from django.utils import timezone
-from scipy.stats import rankdata
 import datetime
 import logging
+
 from competitions.utils import count_daily_submissions
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import Http404
+from django.urls import reverse_lazy
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import DetailView, ListView
+from django.views.generic.edit import FormMixin
+from scipy.stats import rankdata
+
+from .forms import CompetitionPostCreateForm
+from .models import CompetitionModel, CompetitionPost
 
 logger = logging.getLogger(__name__)
 

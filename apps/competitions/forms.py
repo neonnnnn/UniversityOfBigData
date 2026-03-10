@@ -1,6 +1,7 @@
 from django import forms
-from .models import CompetitionModel, CompetitionPost
 from django.utils.translation import gettext_lazy as _
+
+from .models import CompetitionModel, CompetitionPost
 
 
 class EditCompetitionForm(forms.ModelForm):

@@ -1,25 +1,25 @@
 import logging
 
-from django.http import Http404
+from accounts.models import TeamTag, User
+from competitions.models import CompetitionModel
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.db.models import Q
+from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.core.exceptions import PermissionDenied
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView, UpdateView
 from django.views.generic.edit import CreateView, FormMixin
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.utils.translation import gettext_lazy as _
+
 from .forms import (
-    CompetitionForm,
     CertificationTeamsForm,
+    CompetitionForm,
+    EditConfigBoxForm,
     MakeTeamForm,
     ManageUsersForm,
-    EditConfigBoxForm,
 )
 from .models import ConfigBox
-
-from accounts.models import User, TeamTag
-from competitions.models import CompetitionModel
 
 logger = logging.getLogger(__name__)
 

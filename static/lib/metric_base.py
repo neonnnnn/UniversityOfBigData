@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
-import logging
-from typing import Tuple, Union, List, TypeVar, Any
-from collections import namedtuple
 import abc
+import logging
 from abc import abstractmethod
+from collections import namedtuple
 from numbers import Real
+from typing import Any, List, Tuple, TypeVar, Union
+
 import numpy as np
 import pandas as pd
 import sklearn.metrics

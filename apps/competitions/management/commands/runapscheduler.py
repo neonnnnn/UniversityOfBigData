@@ -2,19 +2,17 @@
 
 import logging
 
-from django.conf import settings
-
 from apscheduler.schedulers.blocking import BlockingScheduler  # 定期実行処理用
-from competitions.models import CompetitionModel  # コンペ管理用
-from django_apscheduler.jobstores import DjangoJobStore
-from django_apscheduler.models import DjangoJobExecution
 from apscheduler.triggers.cron import CronTrigger
-from django_apscheduler import util
-
+from competitions.models import CompetitionModel  # コンペ管理用
+from django.conf import settings
 from django.core.management.base import BaseCommand
-from django.utils.translation import gettext_lazy as _
 from django.utils import timezone  # ローカルタイム管理
 from django.utils.timezone import localtime  # ローカルタイム管理用
+from django.utils.translation import gettext_lazy as _
+from django_apscheduler import util
+from django_apscheduler.jobstores import DjangoJobStore
+from django_apscheduler.models import DjangoJobExecution
 
 logger = logging.getLogger(__name__)
 

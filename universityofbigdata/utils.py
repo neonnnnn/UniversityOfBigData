@@ -1,9 +1,10 @@
-from json_log_formatter import JSONFormatter, _json_serializable
+import json
 from logging import LogRecord, getLogger
+
+from django.conf import settings
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-import json
-from django.conf import settings
+from json_log_formatter import JSONFormatter, _json_serializable
 
 
 def get_ip_address(request):

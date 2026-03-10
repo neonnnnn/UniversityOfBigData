@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import CompetitionModel
-from .models import CompetitionPost
+
+from .models import CompetitionModel, CompetitionPost
 
 
 class CompetitionModelAdmin(admin.ModelAdmin):  # Django管理サイトの画面を編集

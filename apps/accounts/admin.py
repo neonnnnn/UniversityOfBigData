@@ -2,7 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.utils.translation import gettext_lazy as _
-from .models import User, TeamTag
+
+from .models import TeamTag, User
 
 
 class MyUserChangeForm(UserChangeForm):  # ユーザー更新フォームを作成

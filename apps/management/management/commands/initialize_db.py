@@ -2,12 +2,10 @@
 
 import logging
 
-from django.core.management.base import BaseCommand
-
 from accounts.models import TeamTag
+from django.contrib.auth.models import Group, Permission
+from django.core.management.base import BaseCommand
 from management.models import ConfigBox
-from django.contrib.auth.models import Group
-from django.contrib.auth.models import Permission
 
 logger = logging.getLogger(__name__)
 

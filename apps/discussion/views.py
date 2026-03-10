@@ -1,14 +1,15 @@
-from django.views.generic import DetailView
-from django.views.generic.edit import FormMixin
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
-from django.utils.translation import gettext_lazy as _
-from django.http import Http404
+import logging
+
 from competitions.models import CompetitionModel
 from competitions.views import allow_invitation
+from discussion.forms import DiscussionCreateForm, DiscussionPostCreateForm
 from discussion.models import Discussion, DiscussionPost
-from discussion.forms import DiscussionPostCreateForm, DiscussionCreateForm
-import logging
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import Http404
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import DetailView
+from django.views.generic.edit import FormMixin
 
 logger = logging.getLogger(__name__)
 

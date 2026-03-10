@@ -1,12 +1,12 @@
-from django.db import models
-from accounts.models import User
-from accounts.models import TeamTag
-from django.utils.translation import gettext_lazy as _
 import datetime
-from django.utils import timezone
 import uuid
-from typing import Tuple
 from numbers import Real
+from typing import Tuple
+
+from accounts.models import TeamTag, User
+from django.db import models
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from static.lib import metrics
 

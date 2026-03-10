@@ -1,9 +1,8 @@
+from authentication.views import prepare_top_context
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
-from django.contrib.auth import get_user_model
 from parametrize import parametrize
-
-from authentication.views import prepare_top_context
 
 User = get_user_model()
 

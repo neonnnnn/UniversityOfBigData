@@ -1,18 +1,17 @@
 """Test models."""
 
-from django.test import TestCase, TransactionTestCase
-from django.utils import timezone
-from django.core.files.uploadedfile import SimpleUploadedFile
-from django.core.management import call_command
 from time import sleep
 
 import numpy as np
-
+from competitions.management.commands.runapscheduler import setplan01
 from competitions.models import (
     CompetitionModel,
     CompetitionPost,
 )
-from competitions.management.commands.runapscheduler import setplan01
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.core.management import call_command
+from django.test import TestCase, TransactionTestCase
+from django.utils import timezone
 
 
 def prepare_files(pred=[0, 1, 1], gt=[0, 1, 2]):

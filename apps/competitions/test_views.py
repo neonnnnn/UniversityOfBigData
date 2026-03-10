@@ -1,17 +1,16 @@
-from django.test import TestCase
-from django.urls import reverse
+import numpy as np
+from accounts.models import TeamTag
+from competitions.models import CompetitionModel, CompetitionPost
 from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.test import TestCase
+from django.urls import reverse
 from django.utils import timezone
-from parametrize import parametrize
-
-import numpy as np
 from lxml import etree
+from parametrize import parametrize
 from scipy.stats import rankdata
 
 from static.lib import metrics
-from competitions.models import CompetitionModel, CompetitionPost
-from accounts.models import TeamTag
 
 # Userモデル `accounts.User` を取得
 User = get_user_model()
@@ -390,7 +389,9 @@ class CompetitionViewsTests(TestCase):
                 reverse("Competitions:competitions_post", args=[comp.id]),
                 {
                     "post_key": submission_file,
-                    "count_par_today": 0,  # 当日の投稿数が任意に指定できるバグが無いことをついでに確認
+                    "count_par_today": (
+                        0
+                    ),  # 当日の投稿数が任意に指定できるバグが無いことをついでに確認
                 },
             )
 

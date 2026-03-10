@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Discussion
-from .models import DiscussionPost
+
+from .models import Discussion, DiscussionPost
 
 
 class DiscussionAdmin(admin.ModelAdmin):

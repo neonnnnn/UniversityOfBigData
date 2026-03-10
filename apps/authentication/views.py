@@ -1,26 +1,27 @@
-from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.http import Http404
-from django.http import HttpResponseRedirect
-from django.utils import timezone, dateformat
-from django.views.generic import ListView, UpdateView
-from django.contrib.auth.mixins import LoginRequiredMixin  # 追加
-from django.contrib.auth.decorators import login_required
-from django.utils.translation import gettext_lazy as _
-from django.utils.dateparse import parse_datetime
-from django.contrib.auth import get_user_model
-from django.core.exceptions import PermissionDenied
-from competitions.models import CompetitionModel
-from .forms import login_requiredForm
+import logging
 
 from accounts.models import TeamTag
+from competitions.models import CompetitionModel
+from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin  # 追加
+from django.core.exceptions import PermissionDenied
+from django.http import Http404, HttpResponseRedirect
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.utils import dateformat, timezone
+from django.utils.dateparse import parse_datetime
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import ListView, UpdateView
+from management.models import ConfigBox
+
 from universityofbigdata.utils import (
     get_ip_address,
-    get_user_info,
     get_log_reader,
+    get_user_info,
 )
-from management.models import ConfigBox
-import logging
+
+from .forms import login_requiredForm
 
 logger = logging.getLogger(__name__)
 

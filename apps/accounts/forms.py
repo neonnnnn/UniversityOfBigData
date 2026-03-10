@@ -1,6 +1,7 @@
-from django.utils.translation import gettext_lazy as _
 from django import forms
-from .models import User, TeamTag
+from django.utils.translation import gettext_lazy as _
+
+from .models import TeamTag, User
 
 
 class SetProfileForm(forms.ModelForm):

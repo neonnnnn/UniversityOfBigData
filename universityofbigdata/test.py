@@ -1,6 +1,7 @@
 """Tests for the application."""
 
 import unittest
+
 from django.conf import settings
 
 

@@ -1,9 +1,9 @@
+from discussion import views
+from discussion.views import logger
 from django.urls import path
 from django.utils.translation import gettext_lazy as _
 
 from universityofbigdata.utils import access_recorded
-from discussion import views
-from discussion.views import logger
 
 app_name = "Discussion"
 

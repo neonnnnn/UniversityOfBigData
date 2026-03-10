@@ -1,16 +1,17 @@
 """Test models."""
 
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 
 User = get_user_model()
+
+from accounts.models import TeamTag
+from competitions.test_views import launch_competition
 
 from .models import (
     Discussion,
     DiscussionPost,
 )
-from competitions.test_views import launch_competition
-from accounts.models import TeamTag
 
 
 def _create_topic(user, compe, team, title, comment):
