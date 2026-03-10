@@ -408,3 +408,52 @@ class CompetitionViewsTests(TestCase):
 
         for i in range(1, n_max_submissions_per_day):
             self.assertEqual(td[i][0].text[0], f'{i}')
+
+    def test_completed_competition_shows_only_intermediate_score_for_non_staff(self):
+        """開催終了後も一般参加者には中間スコアのみを公開する."""
+        desc_file, gt_file, _ = prepare_files([0, 1], [0, 1])
+        comp = CompetitionModel.objects.create(
+            title='公開は中間スコアのみ',
+            title_en='Public leaderboard only after close',
+            competition_abstract='開催終了後の公開表示テスト',
+            competition_description='開催終了後の公開表示テスト',
+            problem_type='classification',
+            evaluation_type='accuracy',
+            file_description='ファイルの説明欄',
+            blob_key=desc_file,
+            truth_blob_key=gt_file,
+            open_datetime=timezone.make_aware(timezone.datetime(
+                2023, 7, 11, 9, 0)),
+            close_datetime=timezone.make_aware(timezone.datetime(
+                2023, 7, 31, 18, 0)),
+            status='completed',
+        )
+
+        CompetitionPost.objects.create(
+            post=comp,
+            team_tag=self.teamtags[0],
+            user_tag=self.users[0],
+            post_key=SimpleUploadedFile('pred_user0.csv', b'0\n1'),
+            intermediate_score=0.11111,
+            final_score=0.99999,
+        )
+
+        self.client.force_login(self.users[0])
+        res_get = self.client.get(
+            reverse('Competitions:competitions_ranking', args=[comp.id]))
+        self.assertEqual(res_get.status_code, 200)
+
+        root = etree.HTML(res_get.content.decode())
+        tables = root.cssselect('table')
+
+        ranking_rows = tables[0][0]
+        self.assertEqual(len(ranking_rows[0]), 5)
+        self.assertEqual(len(ranking_rows[1]), 5)
+        self.assertEqual(ranking_rows[1][2].text, '0.11111')
+
+        history_rows = tables[1][0]
+        self.assertEqual(len(history_rows[0]), 5)
+        self.assertEqual(len(history_rows[1]), 5)
+        self.assertEqual(history_rows[1][2].text, '0.11111')
+
+        self.assertNotIn('0.99999', res_get.content.decode())
