@@ -17,3 +17,6 @@ ALLOWED_HOSTS = ['*']
 #        'PORT': 5432,
 #    }
 #}
+
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 1024 * 1024 * 1024 # 1GB
