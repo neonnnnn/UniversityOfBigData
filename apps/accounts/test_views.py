@@ -9,8 +9,9 @@ User = get_user_model()
 
 def _create_test_user():
     return User.objects.create_user(
-            username='testuser1', password='secret1',
-            )
+        username="testuser1",
+        password="secret1",
+    )
 
 
 class ProfileEditViewTests(TestCase):
