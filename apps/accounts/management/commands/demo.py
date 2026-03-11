@@ -1,5 +1,6 @@
 """デモ用コマンド."""
 
+import io
 import logging
 import random
 import shutil
@@ -31,6 +32,16 @@ User = get_user_model()
 
 SAMPLE_SIZE = 1000
 NUM_CLASSES = 10
+
+
+def _to_npz_bytes(values):
+    buffer = io.BytesIO()
+    np.savez(buffer, labels=np.asarray(values))
+    return buffer.getvalue()
+
+
+def _make_npz_file(filename, values):
+    return SimpleUploadedFile(filename, _to_npz_bytes(values))
 
 
 class AgentThread(Thread):
@@ -109,7 +120,7 @@ class AgentThread(Thread):
         if (len(CompetitionModel.objects.all()) == 0) and (
             self.user.is_staff or self.user.is_superuser
         ):
-            response = self.launch_competition(
+            _ = self.launch_competition(
                 title="__demo__" + self.random_words(10),
                 abstract=self.random_words(20, period=True),
                 description=self.random_words(50, period=True),
@@ -122,7 +133,7 @@ class AgentThread(Thread):
         if action == "access_page":
             self.client.get(reverse(random.choice(self.pages)))
         elif action == "launch_competition":
-            response = self.launch_competition(
+            _ = self.launch_competition(
                 title="__demo__" + self.random_words(10),
                 abstract=self.random_words(20, period=True),
                 description=self.random_words(50, period=True),
@@ -134,7 +145,7 @@ class AgentThread(Thread):
             if len(CompetitionModel.objects.filter(status="active")) == 0:
                 return
             comp = random.choice(CompetitionModel.objects.filter(status="active"))
-            response = self.client.post(
+            _ = self.client.post(
                 reverse("Discussion:discussion_competition", args=[comp.id]),
                 {
                     "title_disc": "__demo__" + self.random_words(5),
@@ -148,7 +159,7 @@ class AgentThread(Thread):
                 topic = random.choice(Discussion.objects.all())
             except IndexError:
                 return
-            response = self.client.post(
+            _ = self.client.post(
                 reverse("Discussion:discussion_post", args=[topic.id]),
                 {
                     "comment_field_post": self.random_words(30, period=True),
@@ -164,12 +175,10 @@ class AgentThread(Thread):
             else:
                 pred = np.random.rand(SAMPLE_SIZE)
 
-            submission_file = SimpleUploadedFile(
-                "pred.csv", "\n".join([f"{v}" for i, v in enumerate(pred)]).encode()
-            )
+            submission_file = _make_npz_file("pred.npz", pred)
 
             try:
-                response = self.client.post(
+                _ = self.client.post(
                     reverse("Competitions:competitions_post", args=[comp.id]),
                     {
                         "post_key": submission_file,
@@ -228,13 +237,9 @@ class AgentThread(Thread):
             pred = np.random.rand(SAMPLE_SIZE)
             gt = np.random.rand(SAMPLE_SIZE)
             evaluation_type = "mean_squared_error"
-        pred_file = SimpleUploadedFile(
-            "example_pred.csv", "\n".join([f"{v}" for i, v in enumerate(pred)]).encode()
-        )
+        pred_file = _make_npz_file("example_pred.npz", pred)
         # 正解ファイル
-        gt_file = SimpleUploadedFile(
-            "gt.csv", "\n".join([f"{v}" for i, v in enumerate(gt)]).encode()
-        )
+        gt_file = _make_npz_file("gt.npz", gt)
 
         response = self.client.post(
             reverse("competitions_create"),

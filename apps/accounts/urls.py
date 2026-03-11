@@ -1,9 +1,6 @@
 from accounts import views
-from django.contrib.auth.views import LogoutView
 from django.urls import path
-from django.utils.translation import gettext_lazy as _
-
-from universityofbigdata.utils import access_recorded
+from django.utils.translation import gettext_lazy as _  # noqa F401
 
 urlpatterns = [
     path("ProfileEdit/", views.ProfileEditView.as_view(), name="profileedit"),

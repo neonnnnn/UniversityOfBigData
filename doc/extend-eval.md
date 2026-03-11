@@ -7,11 +7,11 @@
 ```python
 """My custom metric."""
 
-from .metric_base import CSVSubmissionMetric
+from .metric_base import NPZSubmissionMetric
 from django.utils.translation import gettext_lazy as _
 
 
-class MyMetric(CSVSubmissionMetric):
+class MyMetric(NPZSubmissionMetric):
     name = 'my_metric'
     display_name = _('カスタム指標')
 
@@ -45,11 +45,11 @@ class MetricBase(abc.ABC):
 評価処理インスタンスのコール `__call__` で正解ファイルパス、提出されたファイルパスが与えられるので、
 戻り値としてパブリックリーダーボードのスコア、プライベートリーダーボードのスコアを返すようにします。
 
-上記の `MyMetric` では、`MetricBase`にCSV読み込み `CSVReaderMixin` とパブリック・プライベートリーダーボード用にデータを分ける処理 `DataSplitterMixin` を追加した、次のようなクラス `CSVSubmissionMetric` の派生として定義しています。
+上記の `MyMetric` では、`MetricBase`にNPZ読み込み `NPZReaderMixin` とパブリック・プライベートリーダーボード用にデータを分ける処理 `DataSplitterMixin` を追加した、次のようなクラス `NPZSubmissionMetric` の派生として定義しています。
 
 ```python
-class CSVSubmissionMetric(
-        MetricBase, CSVReaderMixin, DataSplitterMixin):
+class NPZSubmissionMetric(
+        MetricBase, NPZReaderMixin, DataSplitterMixin):
     @abstractmethod
     def metric_fn(self, y_gt: Array, y_pred: Array, *args, **kwargs):
         pass
@@ -72,9 +72,10 @@ class CSVSubmissionMetric(
         return score_pub, score_priv
 ```
 
-`CSVSubmissionMetric` は `metric_fn` のみ実装すれば使用可能な評価処理クラスにできるようになっています。
+`NPZSubmissionMetric` は `metric_fn` のみ実装すれば使用可能な評価処理クラスにできるようになっています。
 
 そのため `MyMetric` は `metric_fn` のみを実装しています。
+
 ```python
     def metric_fn(self, y_gt, y_pred, *args, **kwargs):
         return (y_gt*y_pred).sum()
@@ -83,7 +84,7 @@ class CSVSubmissionMetric(
 また、評価処理クラスの内部処理用の名前 `name` および表示用の名前 `display_name` をクラスのプロパティとして設定してください。 
 
 ```python
-class MyMetric(CSVSubmissionMetric):
+class MyMetric(NPZSubmissionMetric):
     name = 'my_metric'
     display_name = _('カスタム指標')
 ```

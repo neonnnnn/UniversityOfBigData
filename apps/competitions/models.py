@@ -6,7 +6,7 @@ from typing import Tuple
 from accounts.models import TeamTag, User
 from django.db import models
 from django.utils import timezone
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _  # noqa F401
 
 from static.lib import metrics
 

@@ -1,6 +1,5 @@
 from django.db import models
-from django.utils import dateformat, timezone
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _  # noqa F401
 
 
 class ConfigBox(models.Model):

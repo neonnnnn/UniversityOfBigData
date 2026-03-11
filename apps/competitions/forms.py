@@ -1,5 +1,5 @@
 from django import forms
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _  # noqa F401
 
 from .models import CompetitionModel, CompetitionPost
 
@@ -95,6 +95,6 @@ class CompetitionPostCreateForm(forms.ModelForm):
 
     def clean_post_key(self):
         file = self.cleaned_data.get("post_key")
-        if not file.name.endswith(".csv"):
-            self.add_error("post_key", _("拡張子はcsvのみです"))
+        if not file.name.lower().endswith(".npz"):
+            self.add_error("post_key", _("拡張子はnpzのみです"))
         return file

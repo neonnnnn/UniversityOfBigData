@@ -1,3 +1,5 @@
+import io
+
 import numpy as np
 from accounts.models import TeamTag
 from competitions.models import CompetitionModel, CompetitionPost
@@ -16,6 +18,16 @@ from static.lib import metrics
 User = get_user_model()
 
 
+def _to_npz_bytes(values):
+    buffer = io.BytesIO()
+    np.savez(buffer, labels=np.asarray(values, dtype=np.float64))
+    return buffer.getvalue()
+
+
+def _make_npz_file(filename, values):
+    return SimpleUploadedFile(filename, _to_npz_bytes(values))
+
+
 def _create_test_user():
     return User.objects.create_user(
         username="testuser1",
@@ -27,11 +39,9 @@ def launch_competition():
     compes = []
     for i, m_name in enumerate(metrics.keys()):
         # 提出例ファイル
-        pred_file = SimpleUploadedFile(
-            "example_pred.csv", b"image,label\ntest_0001.png,0"
-        )
+        pred_file = _make_npz_file("example_pred.npz", [0])
         # 正解ファイル
-        gt_file = SimpleUploadedFile("gt.csv", b"image,label\ntest_0001.png,0")
+        gt_file = _make_npz_file("gt.npz", [0])
 
         compes.append(
             CompetitionModel.objects.create(
@@ -59,18 +69,12 @@ def prepare_files(
     pred=[0, 1, 1],
 ):
     # 訓練・予測用データ
-    desc_file = SimpleUploadedFile(
-        "desc.csv", "\n".join([f"{v}" for i, v in enumerate(pred)]).encode()
-    )
+    desc_file = _make_npz_file("desc.npz", pred)
     # 正解ファイル
-    gt_file = SimpleUploadedFile(
-        "gt.csv", "\n".join([f"{v}" for i, v in enumerate(gt)]).encode()
-    )
+    gt_file = _make_npz_file("gt.npz", gt)
 
     # 提出ファイル
-    submission_file = SimpleUploadedFile(
-        "pred.csv", "\n".join([f"{v}" for i, v in enumerate(pred)]).encode()
-    )
+    submission_file = _make_npz_file("pred.npz", pred)
     return desc_file, gt_file, submission_file
 
 
@@ -98,9 +102,7 @@ class CompetitionViewsTests(TestCase):
             cls.teamtags.append(teamtag)
 
         # テスト用提出ファイル
-        cls.submission_file = SimpleUploadedFile(
-            "submission.csv", b"image,label\ntest_0001.png,0"
-        )
+        cls.submission_file = _make_npz_file("submission.npz", [0])
 
     @parametrize(
         "name, args, status_code",
@@ -165,7 +167,7 @@ class CompetitionViewsTests(TestCase):
             _, _, submission_file = prepare_files(gt, preds[i])
 
             # 投稿
-            res_post = self.client.post(
+            _ = self.client.post(
                 f"/ja/competitions/competitions_post/{comp.id}",
                 {
                     "post_key": submission_file,
@@ -270,27 +272,27 @@ class CompetitionViewsTests(TestCase):
             # 多次元回帰
             (
                 "mean_absolute_error",
-                np.array(["0, 1, 2, 3", "4, 5, 6, 7"]),
-                np.array([["0, 1, 2, 3", "4, 5, 6, 7"]]),
+                np.array([[0, 1, 2, 3], [4, 5, 6, 7]]),
+                np.array([[[0, 1, 2, 3], [4, 5, 6, 7]]]),
                 [0],
             ),
             (
                 "mean_absolute_error",
-                np.array(["0, 1, 2, 3", "4, 5, 6, 7"]),
-                np.array([["1, 1, 2, 3", "4, 5, 6, 7"]]),
+                np.array([[0, 1, 2, 3], [4, 5, 6, 7]]),
+                np.array([[[1, 1, 2, 3], [4, 5, 6, 7]]]),
                 [0.125],
             ),  # (絶対誤差 / カラム数) / サンプルサイズ
             (
                 "root_mean_squared_error",
-                np.array(["0, 1, 2, 3", "4, 5, 6, 7"]),
-                np.array([["0, 1, 2, 3", "4, 5, 6, 7"]]),
+                np.array([[0, 1, 2, 3], [4, 5, 6, 7]]),
+                np.array([[[0, 1, 2, 3], [4, 5, 6, 7]]]),
                 [0],
             ),
             # 多ラベル分類
             (
                 "exact_match_ratio",
-                np.array(["0, 1, 2, 3", "4, 5, 6, 7"]),
-                np.array([["1, 1, 2, 3", "4, 5, 6, 7"]]),
+                np.array([[0, 1, 2, 3], [4, 5, 6, 7]]),
+                np.array([[[1, 1, 2, 3], [4, 5, 6, 7]]]),
                 [0.5],
             ),
             # カスタム指標
@@ -323,7 +325,7 @@ class CompetitionViewsTests(TestCase):
         desc_file, gt_file, _ = prepare_files(gt, pred)
 
         submission_file = SimpleUploadedFile(
-            "wrong_pred.csv", "\n".join(["aaa" for _ in range(len(gt))]).encode()
+            "wrong_pred.npz", _to_npz_bytes(["aaa" for _ in range(len(gt))])
         )
 
         # コンペティション作成
@@ -385,7 +387,7 @@ class CompetitionViewsTests(TestCase):
         n_max_submissions_per_day = 3
         for i in range(n_submission):
             desc_file, gt_file, submission_file = prepare_files(gt, pred)
-            res_post = self.client.post(
+            _ = self.client.post(
                 reverse("Competitions:competitions_post", args=[comp.id]),
                 {
                     "post_key": submission_file,
@@ -426,7 +428,7 @@ class CompetitionViewsTests(TestCase):
             post=comp,
             team_tag=self.teamtags[0],
             user_tag=self.users[0],
-            post_key=SimpleUploadedFile("pred_user0.csv", b"0\n1"),
+            post_key=_make_npz_file("pred_user0.npz", [0, 1]),
             intermediate_score=0.11111,
             final_score=0.99999,
         )

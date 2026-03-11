@@ -2,7 +2,7 @@ from accounts.models import TeamTag, User
 from competitions.models import CompetitionModel
 from django import forms
 from django.utils import timezone
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _  # noqa F401
 
 from .models import ConfigBox
 

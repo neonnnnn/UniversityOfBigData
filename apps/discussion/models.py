@@ -1,7 +1,7 @@
 from accounts.models import TeamTag, User
 from competitions.models import CompetitionModel
 from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _  # noqa F401
 
 
 def get_deleted_user():

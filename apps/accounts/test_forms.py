@@ -7,7 +7,6 @@ from .forms import (
     ProfileForm,
     SetProfileForm,
 )
-from .models import TeamTag
 
 User = get_user_model()
 

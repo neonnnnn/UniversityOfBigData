@@ -1,13 +1,9 @@
 import logging
 
 from django.contrib.auth.mixins import LoginRequiredMixin  # 追加
-from django.db.models import Q
-from django.http import Http404
 from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView  # 追加
-from django.views.generic.edit import CreateView, FormMixin, UpdateView  # 追加 # 追加
+from django.utils.translation import gettext_lazy as _  # noqa F401
+from django.views.generic.edit import CreateView, UpdateView  # 追加
 
 from .forms import ProfileForm, SetProfileForm  # 追加
 from .models import TeamTag, User  # 追加

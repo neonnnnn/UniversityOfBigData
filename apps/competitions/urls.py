@@ -1,7 +1,7 @@
 from competitions import views
 from competitions.views import logger
 from django.urls import path
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _  # noqa F401
 
 from universityofbigdata.utils import access_recorded
 

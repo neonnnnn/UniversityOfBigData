@@ -3,14 +3,12 @@
 import abc
 import logging
 from abc import abstractmethod
-from collections import namedtuple
 from numbers import Real
 from typing import Any, List, Tuple, TypeVar, Union
 
 import numpy as np
-import pandas as pd
 import sklearn.metrics
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _  # noqa F401
 
 T = TypeVar("T")
 Array = Union[List[T], np.ndarray[T]]
@@ -30,18 +28,26 @@ class MetricBase(abc.ABC):
         pass
 
 
-class CSVReaderMixin:
-    DataFormat = namedtuple("DataFormat", ["name", "has_header"])
-    data_format = DataFormat("csv", False)
-
+class NPZReaderMixin:
     def read_file(
         self,
-        file_path: str,
+        file_path: Any,
     ) -> np.ndarray:
-        df_data = pd.read_csv(
-            file_path, header=None if not self.data_format.has_header else True
-        )
-        return df_data.values
+        if hasattr(file_path, "seek"):
+            file_path.seek(0)
+
+        with np.load(file_path, allow_pickle=False) as npz_data:
+            if len(npz_data.files) != 1:
+                raise RuntimeError("Invalid npz format")
+            data = np.asarray(npz_data[npz_data.files[0]])
+
+        # Keep compatibility with the previous CSV loader shape (N, 1)
+        # when the source data is one-dimensional.
+        if data.ndim == 0:
+            return data.reshape(1, 1)
+        if data.ndim == 1:
+            return data.reshape(-1, 1)
+        return data
 
 
 class DataSplitterMixin:
@@ -52,7 +58,7 @@ class DataSplitterMixin:
         return data_gt[:idx], data_pred[:idx]
 
 
-class CSVSubmissionMetric(MetricBase, CSVReaderMixin, DataSplitterMixin):
+class NPZSubmissionMetric(MetricBase, NPZReaderMixin, DataSplitterMixin):
     @abstractmethod
     def metric_fn(self, y_gt: Array, y_pred: Array, *args, **kwargs):
         pass
@@ -72,7 +78,7 @@ class CSVSubmissionMetric(MetricBase, CSVReaderMixin, DataSplitterMixin):
         return score_pub, score_priv
 
 
-class MSE(CSVSubmissionMetric):
+class MSE(NPZSubmissionMetric):
     name = "mean_squared_error"
     display_name = _("二乗平均誤差")
     greater_is_better = False
@@ -81,7 +87,7 @@ class MSE(CSVSubmissionMetric):
         return sklearn.metrics.mean_squared_error(y_gt, y_pred, *args, **kwargs)
 
 
-class MAE(CSVSubmissionMetric):
+class MAE(NPZSubmissionMetric):
     name = "mean_absolute_error"
     display_name = _("平均絶対誤差")
     greater_is_better = False
@@ -90,7 +96,7 @@ class MAE(CSVSubmissionMetric):
         return sklearn.metrics.mean_absolute_error(y_gt, y_pred, *args, **kwargs)
 
 
-class RMSE(CSVSubmissionMetric):
+class RMSE(NPZSubmissionMetric):
     name = "root_mean_squared_error"
     display_name = _("二乗平均平方根誤差")
     greater_is_better = False
@@ -101,7 +107,7 @@ class RMSE(CSVSubmissionMetric):
         )
 
 
-class ROCAUC(CSVSubmissionMetric):
+class ROCAUC(NPZSubmissionMetric):
     name = "roc_auc_score"
     display_name = _("Area under the ROC curve (AUC)")
     greater_is_better = True
@@ -110,7 +116,7 @@ class ROCAUC(CSVSubmissionMetric):
         return sklearn.metrics.roc_auc_score(y_gt.astype(int), y_pred, *args, **kwargs)
 
 
-class Accuracy(CSVSubmissionMetric):
+class Accuracy(NPZSubmissionMetric):
     name = "accuracy"
     display_name = _("正解率")
     greater_is_better = True
@@ -119,7 +125,7 @@ class Accuracy(CSVSubmissionMetric):
         return sklearn.metrics.accuracy_score(y_gt, y_pred, *args, **kwargs)
 
 
-class Recall(CSVSubmissionMetric):
+class Recall(NPZSubmissionMetric):
     name = "recall"
     display_name = _("適合率")
     greater_is_better = True
@@ -130,7 +136,7 @@ class Recall(CSVSubmissionMetric):
         )
 
 
-class Precision(CSVSubmissionMetric):
+class Precision(NPZSubmissionMetric):
     name = "precision"
     display_name = _("再現率")
     greater_is_better = True
@@ -141,7 +147,7 @@ class Precision(CSVSubmissionMetric):
         )
 
 
-class F1(CSVSubmissionMetric):
+class F1(NPZSubmissionMetric):
     name = "f1"
     display_name = _("f値")
     greater_is_better = True
@@ -150,10 +156,14 @@ class F1(CSVSubmissionMetric):
         return sklearn.metrics.f1_score(y_gt, y_pred, average=average, *args, **kwargs)
 
 
-class ExactMatchRatio(CSVSubmissionMetric):
+class ExactMatchRatio(NPZSubmissionMetric):
     name = "exact_match_ratio"
     display_name = _("Exact Match Ratio")
     greater_is_better = True
 
     def metric_fn(self, y_gt: Array, y_pred: Array, *args, **kwargs):
         return (y_gt == y_pred).all(1).mean()
+
+
+# Backward compatibility for custom user-defined metrics.
+CSVSubmissionMetric = NPZSubmissionMetric

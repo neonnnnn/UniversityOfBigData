@@ -1,9 +1,9 @@
 import json
-from logging import LogRecord, getLogger
+from logging import LogRecord
 
 from django.conf import settings
 from django.utils import timezone
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _  # noqa F401
 from json_log_formatter import JSONFormatter, _json_serializable
 
 

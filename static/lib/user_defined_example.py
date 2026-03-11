@@ -1,11 +1,11 @@
 """My custom metric."""
 
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _  # noqa F401
 
-from .metric_base import CSVSubmissionMetric
+from .metric_base import NPZSubmissionMetric
 
 
-class MyMetric(CSVSubmissionMetric):
+class MyMetric(NPZSubmissionMetric):
     name = "my_metric"
     display_name = _("カスタム指標")
 

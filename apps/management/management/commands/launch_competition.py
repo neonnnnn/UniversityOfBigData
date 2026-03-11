@@ -366,8 +366,8 @@ def download_dataset(
         zip_path = shutil.make_archive("data.zip", "zip", str(data_dir))
 
         # gt data
-        gt_path = Path(dst_dir) / "test_labels.csv"
-        test_df.loc[:, target_features].to_csv(gt_path, header=None, index=False)
+        gt_path = Path(dst_dir) / "test_labels.npz"
+        np.savez(gt_path, labels=test_df.loc[:, target_features].to_numpy())
     else:
         train_dir = data_dir / "train"
         train_dir.mkdir()
@@ -383,7 +383,7 @@ def download_dataset(
         for label in dataset["train"].info.features["label"].names:
             (train_dir / label).mkdir()
         # save images
-        logger.info(f"Saving images...")
+        logger.info("Saving images...")
         for i, img in enumerate(tqdm(dataset["train"]["image"], desc="save images")):
             label = dataset["train"]["label"][i]
             img.save(train_dir / str(label) / f"{str(i).zfill(num_digits)}.png")
@@ -400,9 +400,7 @@ def download_dataset(
         zip_path = shutil.make_archive("data.zip", "zip", str(data_dir))
 
         # gt data
-        gt_path = Path(dst_dir) / "test_labels.csv"
-        pd.DataFrame({"label": dataset["test"]["label"]}).to_csv(
-            gt_path, header=None, index=False
-        )
+        gt_path = Path(dst_dir) / "test_labels.npz"
+        np.savez(gt_path, labels=np.asarray(dataset["test"]["label"]))
 
     return zip_path, gt_path

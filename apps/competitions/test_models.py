@@ -1,5 +1,6 @@
 """Test models."""
 
+import io
 from time import sleep
 
 import numpy as np
@@ -9,33 +10,36 @@ from competitions.models import (
     CompetitionPost,
 )
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.core.management import call_command
 from django.test import TestCase, TransactionTestCase
 from django.utils import timezone
 
 
+def _to_npz_bytes(values):
+    buffer = io.BytesIO()
+    np.savez(buffer, labels=np.asarray(values))
+    return buffer.getvalue()
+
+
+def _make_npz_file(filename, values):
+    return SimpleUploadedFile(filename, _to_npz_bytes(values))
+
+
 def prepare_files(pred=[0, 1, 1], gt=[0, 1, 2]):
     # 提出ファイル例?
-    desc_file = SimpleUploadedFile(
-        "desc.csv", "\n".join([f"{v}" for i, v in enumerate(pred)]).encode()
-    )
+    desc_file = _make_npz_file("desc.npz", pred)
     # 正解ファイル
-    gt_file = SimpleUploadedFile(
-        "gt.csv", "\n".join([f"{v}" for i, v in enumerate(gt)]).encode()
-    )
+    gt_file = _make_npz_file("gt.npz", gt)
 
     # 提出ファイル
-    submission_file = SimpleUploadedFile(
-        "pred.csv", "\n".join([f"{v}" for i, v in enumerate(pred)]).encode()
-    )
+    submission_file = _make_npz_file("pred.npz", pred)
     return desc_file, gt_file, submission_file
 
 
 def launch_competition():
     # 提出例ファイル
-    pred_file = SimpleUploadedFile("example_pred.csv", b"image,label\ntest_0001.png,0")
+    pred_file = _make_npz_file("example_pred.npz", [0])
     # 正解ファイル
-    gt_file = SimpleUploadedFile("gt.csv", b"image,label\ntest_0001.png,0")
+    gt_file = _make_npz_file("gt.npz", [0])
 
     CompetitionModel.objects.create(
         title="画像分類",
@@ -75,9 +79,7 @@ class CompetitionPostTest(TestCase):
     def setUpTestData(cls):
         launch_competition()
         compe = CompetitionModel.objects.get(id=1)
-        submission_file = SimpleUploadedFile(
-            "submission.csv", b"image,label\ntest_0001.png,0"
-        )
+        submission_file = _make_npz_file("submission.npz", [0])
         CompetitionPost.objects.create(post=compe, post_key=submission_file)
 
     def test_count_posts_equals_1(self):
@@ -86,10 +88,10 @@ class CompetitionPostTest(TestCase):
         self.assertEqual(compe_post.count_posts, 1)
         self.assertEqual(compe_post.count_par_today, 1)
 
-    def test_wrong_csv_posted(self):
-        """XXX: 作成途中、不正なCSVデータが投稿された場合に例外処理されるか."""
+    def test_wrong_npz_posted(self):
+        """XXX: 作成途中、不正なnpzデータが投稿された場合に例外処理されるか."""
         compe = CompetitionModel.objects.get(id=1)
-        submission_file = SimpleUploadedFile("submission.csv", b"image")
+        submission_file = SimpleUploadedFile("submission.npz", b"image")
         CompetitionPost.objects.create(post=compe, post_key=submission_file)
 
 

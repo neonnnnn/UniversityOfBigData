@@ -9,7 +9,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.utils import timezone  # ローカルタイム管理
 from django.utils.timezone import localtime  # ローカルタイム管理用
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _  # noqa F401
 from django_apscheduler import util
 from django_apscheduler.jobstores import DjangoJobStore
 from django_apscheduler.models import DjangoJobExecution
@@ -18,11 +18,6 @@ logger = logging.getLogger(__name__)
 
 
 def setplan01():
-    choices = [
-        ("coming", _("開催準備中")),
-        ("active", _("開催中")),
-        ("completed", _("開催終了")),
-    ]
     logger.info("Running 'setplan01'.")
     status = "coming"
     compALL = CompetitionModel.objects.all()

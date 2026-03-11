@@ -7,7 +7,7 @@ from discussion.models import Discussion, DiscussionPost
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import Http404
 from django.urls import reverse_lazy
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _  # noqa F401
 from django.views.generic import DetailView
 from django.views.generic.edit import FormMixin
 
@@ -32,8 +32,8 @@ class DiscussionCompetitionView(LoginRequiredMixin, FormMixin, DetailView):
         return initial
 
     def get_success_url(self):
-        context = self.get_context_data()
-        comp = self.get_object()
+        _ = self.get_context_data()
+        _ = self.get_object()
         return reverse_lazy(
             "Discussion:discussion_competition", kwargs={"pk": self.object.pk}
         )
@@ -184,7 +184,7 @@ class DiscussionPostView(LoginRequiredMixin, FormMixin, DetailView):
         context = self.get_context_data()
         comp_title = context["competition"].title
         disc_title = self.object.title_disc
-        comment = request.POST["comment_field_post"]
+        _ = request.POST["comment_field_post"]
         form = self.get_form()
         if form.is_valid():
             post_dis = DiscussionPostCreateForm(request.POST, request.FILES)
