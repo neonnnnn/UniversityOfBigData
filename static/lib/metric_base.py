@@ -29,10 +29,47 @@ class MetricBase(abc.ABC):
 
 
 class NPZReaderMixin:
-    def read_file(
+    def read_gt_file(
+        self,
+        file_path: Any,
+    ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+        """Read a GT NPZ file with keys: label, public_indices, private_indices."""
+        if hasattr(file_path, "seek"):
+            file_path.seek(0)
+
+        required_keys = {"label", "public_indices", "private_indices"}
+        with np.load(file_path, allow_pickle=False) as npz_data:
+            if not required_keys.issubset(set(npz_data.files)):
+                raise RuntimeError(
+                    "Invalid gt npz format: must contain keys "
+                    "'label', 'public_indices', 'private_indices'"
+                )
+            labels = np.asarray(npz_data["label"])
+            public_indices = np.asarray(npz_data["public_indices"])
+            private_indices = np.asarray(npz_data["private_indices"])
+
+        all_indices = np.concatenate([public_indices, private_indices])
+        if len(all_indices) != len(labels):
+            raise RuntimeError(
+                "Invalid gt npz: len(public_indices) + len(private_indices) "
+                f"({len(all_indices)}) != len(label) ({len(labels)})"
+            )
+        if len(np.unique(all_indices)) != len(all_indices):
+            raise RuntimeError(
+                "Invalid gt npz: public_indices and private_indices must not overlap"
+            )
+
+        if labels.ndim == 0:
+            labels = labels.reshape(1, 1)
+        elif labels.ndim == 1:
+            labels = labels.reshape(-1, 1)
+        return labels, public_indices, private_indices
+
+    def read_pred_file(
         self,
         file_path: Any,
     ) -> np.ndarray:
+        """Read a submission NPZ file with a single key."""
         if hasattr(file_path, "seek"):
             file_path.seek(0)
 
@@ -41,39 +78,34 @@ class NPZReaderMixin:
                 raise RuntimeError("Invalid npz format")
             data = np.asarray(npz_data[npz_data.files[0]])
 
-        # Keep compatibility with the previous CSV loader shape (N, 1)
-        # when the source data is one-dimensional.
         if data.ndim == 0:
             return data.reshape(1, 1)
         if data.ndim == 1:
             return data.reshape(-1, 1)
         return data
 
-
-class DataSplitterMixin:
-    def split(
-        self, data_gt: Array[Any], data_pred: Array[Any], ratio: Real
-    ) -> Tuple[Array[Any], Array[Any]]:
-        idx = int(len(data_gt) * ratio)
-        return data_gt[:idx], data_pred[:idx]
+    # Backward-compat alias
+    read_file = read_pred_file
 
 
-class NPZSubmissionMetric(MetricBase, NPZReaderMixin, DataSplitterMixin):
+class NPZSubmissionMetric(MetricBase, NPZReaderMixin):
     @abstractmethod
     def metric_fn(self, y_gt: Array, y_pred: Array, *args, **kwargs):
         pass
 
     def __call__(self, gt_file: str, submitted_file: str, *args, **kwargs):
-        y_gt = self.read_file(gt_file)
-        y_pred = self.read_file(submitted_file)
+        y_gt, public_indices, private_indices = self.read_gt_file(gt_file)
+        y_pred = self.read_pred_file(submitted_file)
 
         if len(y_pred) != len(y_gt):
             raise RuntimeError("Invalid sample size")
 
-        y_gt_pub, y_pred_pub = self.split(y_gt, y_pred, self.public_lb_ratio)
-
-        score_pub = self.metric_fn(y_gt_pub, y_pred_pub, *args, **kwargs)
-        score_priv = self.metric_fn(y_gt, y_pred, *args, **kwargs)
+        score_pub = self.metric_fn(
+            y_gt[public_indices], y_pred[public_indices], *args, **kwargs
+        )
+        score_priv = self.metric_fn(
+            y_gt[private_indices], y_pred[private_indices], *args, **kwargs
+        )
 
         return score_pub, score_priv
 

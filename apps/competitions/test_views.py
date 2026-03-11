@@ -24,8 +24,27 @@ def _to_npz_bytes(values):
     return buffer.getvalue()
 
 
+def _to_gt_npz_bytes(values, public_ratio=0.5):
+    buffer = io.BytesIO()
+    labels = np.asarray(values, dtype=np.float64)
+    n = len(labels)
+    public_indices = np.arange(int(n * public_ratio))
+    private_indices = np.arange(int(n * public_ratio), n)
+    np.savez(
+        buffer,
+        label=labels,
+        public_indices=public_indices,
+        private_indices=private_indices,
+    )
+    return buffer.getvalue()
+
+
 def _make_npz_file(filename, values):
     return SimpleUploadedFile(filename, _to_npz_bytes(values))
+
+
+def _make_gt_npz_file(filename, values, public_ratio=0.5):
+    return SimpleUploadedFile(filename, _to_gt_npz_bytes(values, public_ratio))
 
 
 def _create_test_user():
@@ -41,7 +60,7 @@ def launch_competition():
         # 提出例ファイル
         pred_file = _make_npz_file("example_pred.npz", [0])
         # 正解ファイル
-        gt_file = _make_npz_file("gt.npz", [0])
+        gt_file = _make_gt_npz_file("gt.npz", [0])
 
         compes.append(
             CompetitionModel.objects.create(
@@ -67,11 +86,12 @@ def launch_competition():
 def prepare_files(
     gt=[0, 1, 2],
     pred=[0, 1, 1],
+    public_ratio=0.5,
 ):
     # 訓練・予測用データ
     desc_file = _make_npz_file("desc.npz", pred)
     # 正解ファイル
-    gt_file = _make_npz_file("gt.npz", gt)
+    gt_file = _make_gt_npz_file("gt.npz", gt, public_ratio=public_ratio)
 
     # 提出ファイル
     submission_file = _make_npz_file("pred.npz", pred)
@@ -151,7 +171,7 @@ class CompetitionViewsTests(TestCase):
             truth_blob_key=gt_file,
             open_datetime=timezone.make_aware(timezone.datetime(2023, 7, 11, 9, 0)),
             close_datetime=timezone.make_aware(timezone.datetime(2023, 7, 31, 18, 0)),
-            public_leaderboard_percentage=100,
+            public_leaderboard_percentage=50,
             status="active",
         )
 
@@ -210,6 +230,9 @@ class CompetitionViewsTests(TestCase):
     FLOAT_GT = np.array(
         [0.298, 8.439, -6.638, -4.886, 9.884, -5.206, 4.594, 6.167, 5.469, 3.097]
     )
+    FLOAT_GT = np.append(
+        FLOAT_GT, FLOAT_GT[::-1]
+    )  # 公開用と非公開用のインデックスを分けるため、要素数を倍にする
     FLOAT_PREDS = np.array(
         [
             [-6.439, -4.516, -6.996, 7.625, -9.335, 0.382, 0.637, 8.738, -4.945, 6.294],
@@ -217,8 +240,10 @@ class CompetitionViewsTests(TestCase):
             [-6.309, -7.228, -8.525, 8.419, 9.736, 9.171, 5.443, -4.832, 2.418, 8.284],
         ]
     )
+    FLOAT_PREDS = np.tile(FLOAT_PREDS, (1, 2))
     # np.random.randint(10, size=10) で乱数生成
     INT_GT = np.array([3, 2, 8, 7, 5, 6, 9, 9, 2, 6])
+    INT_GT = np.append(INT_GT, INT_GT[::-1])
     INT_PREDS = np.array(
         [
             [7, 5, 0, 4, 8, 1, 8, 4, 8, 6],
@@ -226,6 +251,7 @@ class CompetitionViewsTests(TestCase):
             [6, 4, 9, 4, 7, 7, 9, 7, 5, 4],
         ]
     )
+    INT_PREDS = np.tile(INT_PREDS, (1, 2))
 
     @parametrize(
         "m_name, gt, preds, expected_scores",
@@ -272,27 +298,27 @@ class CompetitionViewsTests(TestCase):
             # 多次元回帰
             (
                 "mean_absolute_error",
-                np.array([[0, 1, 2, 3], [4, 5, 6, 7]]),
-                np.array([[[0, 1, 2, 3], [4, 5, 6, 7]]]),
+                np.array([[0, 1, 2, 3], [4, 5, 6, 7], [0, 1, 2, 3], [4, 5, 6, 7]]),
+                np.array([[[0, 1, 2, 3], [4, 5, 6, 7], [0, 1, 2, 3], [4, 5, 6, 7]]]),
                 [0],
             ),
             (
                 "mean_absolute_error",
-                np.array([[0, 1, 2, 3], [4, 5, 6, 7]]),
-                np.array([[[1, 1, 2, 3], [4, 5, 6, 7]]]),
+                np.array([[0, 1, 2, 3], [4, 5, 6, 7], [0, 1, 2, 3], [4, 5, 6, 7]]),
+                np.array([[[1, 1, 2, 3], [4, 5, 6, 7], [1, 1, 2, 3], [4, 5, 6, 7]]]),
                 [0.125],
             ),  # (絶対誤差 / カラム数) / サンプルサイズ
             (
                 "root_mean_squared_error",
-                np.array([[0, 1, 2, 3], [4, 5, 6, 7]]),
-                np.array([[[0, 1, 2, 3], [4, 5, 6, 7]]]),
+                np.array([[0, 1, 2, 3], [4, 5, 6, 7], [0, 1, 2, 3], [4, 5, 6, 7]]),
+                np.array([[[0, 1, 2, 3], [4, 5, 6, 7], [0, 1, 2, 3], [4, 5, 6, 7]]]),
                 [0],
             ),
             # 多ラベル分類
             (
                 "exact_match_ratio",
-                np.array([[0, 1, 2, 3], [4, 5, 6, 7]]),
-                np.array([[[1, 1, 2, 3], [4, 5, 6, 7]]]),
+                np.array([[0, 1, 2, 3], [4, 5, 6, 7], [0, 1, 2, 3], [4, 5, 6, 7]]),
+                np.array([[[1, 1, 2, 3], [4, 5, 6, 7], [1, 1, 2, 3], [4, 5, 6, 7]]]),
                 [0.5],
             ),
             # カスタム指標

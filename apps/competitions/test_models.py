@@ -20,15 +20,36 @@ def _to_npz_bytes(values):
     return buffer.getvalue()
 
 
+def _to_gt_npz_bytes(values, public_ratio=0.5):
+    buffer = io.BytesIO()
+    labels = np.asarray(values)
+    n = len(labels)
+    public_indices = np.arange(int(n * public_ratio))
+    private_indices = np.arange(
+        int(n * public_ratio), n
+    )  # 公開データと非公開データのインデックスを分割
+    np.savez(
+        buffer,
+        label=labels,
+        public_indices=public_indices,
+        private_indices=private_indices,
+    )
+    return buffer.getvalue()
+
+
 def _make_npz_file(filename, values):
     return SimpleUploadedFile(filename, _to_npz_bytes(values))
+
+
+def _make_gt_npz_file(filename, values, public_ratio=0.5):
+    return SimpleUploadedFile(filename, _to_gt_npz_bytes(values, public_ratio))
 
 
 def prepare_files(pred=[0, 1, 1], gt=[0, 1, 2]):
     # 提出ファイル例?
     desc_file = _make_npz_file("desc.npz", pred)
     # 正解ファイル
-    gt_file = _make_npz_file("gt.npz", gt)
+    gt_file = _make_gt_npz_file("gt.npz", gt)
 
     # 提出ファイル
     submission_file = _make_npz_file("pred.npz", pred)
@@ -39,7 +60,7 @@ def launch_competition():
     # 提出例ファイル
     pred_file = _make_npz_file("example_pred.npz", [0])
     # 正解ファイル
-    gt_file = _make_npz_file("gt.npz", [0])
+    gt_file = _make_gt_npz_file("gt.npz", [0])
 
     CompetitionModel.objects.create(
         title="画像分類",
@@ -100,7 +121,7 @@ class StatusUpdateTests(TransactionTestCase):
         """コンペの状態更新がうまくできているか."""
         pred = np.arange(10)
         gt = np.arange(10)
-        desc_file, gt_file, submission_file = prepare_files(pred, gt)
+        desc_file, gt_file, _ = prepare_files(pred, gt)
 
         # コンペティション作成
         title = "コンペの状態更新のテスト"

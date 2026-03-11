@@ -251,6 +251,7 @@ class Command(BaseCommand):
                 REPOSITORY_NAME[dataset_name],
                 target_features=COMPETITION_PARAMS[dataset_name]["target_features"],
                 dst_dir=temp_dir.name,
+                public_lb_ratio=options["public_lb_percentage"] / 100,
             )
             params = COMPETITION_PARAMS[dataset_name]
         else:
@@ -340,6 +341,7 @@ def download_dataset(
     target_features: List[str],
     dst_dir: str,
     test_size: float = 0.3,
+    public_lb_ratio: float = 0.5,
 ) -> Tuple[str]:
     """Download a dataset."""
     # download hf dataset
@@ -367,7 +369,16 @@ def download_dataset(
 
         # gt data
         gt_path = Path(dst_dir) / "test_labels.npz"
-        np.savez(gt_path, labels=test_df.loc[:, target_features].to_numpy())
+        gt_labels = test_df.loc[:, target_features].to_numpy()
+        n = len(gt_labels)
+        public_indices = np.arange(int(n * public_lb_ratio))
+        private_indices = np.arange(n)
+        np.savez(
+            gt_path,
+            label=gt_labels,
+            public_indices=public_indices,
+            private_indices=private_indices,
+        )
     else:
         train_dir = data_dir / "train"
         train_dir.mkdir()
@@ -401,6 +412,15 @@ def download_dataset(
 
         # gt data
         gt_path = Path(dst_dir) / "test_labels.npz"
-        np.savez(gt_path, labels=np.asarray(dataset["test"]["label"]))
+        gt_labels = np.asarray(dataset["test"]["label"])
+        n = len(gt_labels)
+        public_indices = np.arange(int(n * public_lb_ratio))
+        private_indices = np.arange(n)
+        np.savez(
+            gt_path,
+            label=gt_labels,
+            public_indices=public_indices,
+            private_indices=private_indices,
+        )
 
     return zip_path, gt_path
