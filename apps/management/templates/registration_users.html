@@ -29,7 +29,6 @@
                             <td class="col-md-2">{% trans "nickname" %}</td>
                             <td class="col-md-2">{% trans "username" %}</td>
                             <td class="col-md-2">{% trans "email" %}</td>
-                            <td class="col-md-2">{% trans "学籍番号" %}</td>
                             <td class="col-md-2">{% trans "参加認証" %}</td>
                         </tr>
                         {% for obj in user_box %}
@@ -37,7 +36,6 @@
                             <td>{{obj.nickname}}</td>
                             <td>{{obj.username}}</td>
                             <td>{{obj.email}}</td>
-                            <td>{{obj.student_number}}</td>
                             <td>
                                 {% if obj.is_participant  %}
                                     <input type="radio" id={{obj.pk}} name={{obj.pk}} value="is_participant" checked>

@@ -155,9 +155,6 @@ class User(PermissionsMixin, AbstractBaseUser):
         _("affiliation organization"), max_length=150, blank=True
     )  # 大学名・企業名
 
-    # 学籍番号
-    student_number = models.CharField(_("student number"), max_length=150, blank=True)
-
     # チーム機能
     selectedTeam = models.ForeignKey(
         to=TeamTag, on_delete=models.CASCADE, related_name="selected_team", null=True

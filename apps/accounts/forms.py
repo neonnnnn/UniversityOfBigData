@@ -48,7 +48,6 @@ class ProfileForm(forms.ModelForm):
             "username",
             "email",
             "nickname",
-            "student_number",
             "affiliation_organization",
         )
         help_texts = {
@@ -57,7 +56,6 @@ class ProfileForm(forms.ModelForm):
             "nickname": _(
                 "コンペティションで使用するニックネームを入力してください。ニックネームは本サイト上で公開されます。<br>英数字でお願いします。登録後に変更可能です。"
             ),
-            "student_number": _("学籍番号"),
             "affiliation_organization": _(
                 "所属など　入力例：「ビッグデータ大学」。公開はされません"
             ),
