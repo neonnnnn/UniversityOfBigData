@@ -29,6 +29,18 @@ class MetricBase(abc.ABC):
 
 
 class NPZReaderMixin:
+    @staticmethod
+    def _normalize_sample_shape(data: np.ndarray) -> np.ndarray:
+        # Keep compatibility with previous behavior while supporting image-like
+        # tensors: (N, H, W) -> (N, H*W).
+        if data.ndim == 0:
+            return data.reshape(1, 1)
+        if data.ndim == 1:
+            return data.reshape(-1, 1)
+        if data.ndim == 3:
+            return data.reshape(data.shape[0], -1)
+        return data
+
     def read_gt_file(
         self,
         file_path: Any,
@@ -59,10 +71,7 @@ class NPZReaderMixin:
                 "Invalid gt npz: public_indices and private_indices must not overlap"
             )
 
-        if labels.ndim == 0:
-            labels = labels.reshape(1, 1)
-        elif labels.ndim == 1:
-            labels = labels.reshape(-1, 1)
+        labels = self._normalize_sample_shape(labels)
         return labels, public_indices, private_indices
 
     def read_pred_file(
@@ -78,11 +87,7 @@ class NPZReaderMixin:
                 raise RuntimeError("Invalid npz format")
             data = np.asarray(npz_data[npz_data.files[0]])
 
-        if data.ndim == 0:
-            return data.reshape(1, 1)
-        if data.ndim == 1:
-            return data.reshape(-1, 1)
-        return data
+        return self._normalize_sample_shape(data)
 
     # Backward-compat alias
     read_file = read_pred_file
