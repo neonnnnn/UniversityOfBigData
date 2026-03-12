@@ -1,3 +1,4 @@
+import numpy as np
 from accounts.models import TeamTag, User
 from competitions.models import CompetitionModel
 from django import forms
@@ -90,6 +91,59 @@ class CompetitionForm(forms.ModelForm):
             "file_description_en": _("ファイルの説明（英語）(optional)"),
             "displayed_decimal_places": _("スコア表示の小数点以下の桁数"),
         }
+
+    def clean_truth_blob_key(self):
+        file = self.cleaned_data.get("truth_blob_key")
+        if not file:
+            return file
+
+        if not file.name.lower().endswith(".npz"):
+            raise forms.ValidationError(_("正解データファイルの拡張子はnpzのみです"))
+
+        if hasattr(file, "seek"):
+            file.seek(0)
+
+        try:
+            with np.load(file, allow_pickle=False) as npz_data:
+                required_keys = {"label", "public_indices", "private_indices"}
+                if not required_keys.issubset(set(npz_data.files)):
+                    raise forms.ValidationError(
+                        _(
+                            "正解データnpzには label, public_indices, "
+                            "private_indices の3キーが必要です"
+                        )
+                    )
+
+                labels = np.asarray(npz_data["label"])
+                public_indices = np.asarray(npz_data["public_indices"])
+                private_indices = np.asarray(npz_data["private_indices"])
+
+            all_indices = np.concatenate([public_indices, private_indices])
+            if len(all_indices) != len(labels):
+                raise forms.ValidationError(
+                    _(
+                        "public_indices と private_indices の要素数合計が "
+                        "label の要素数と一致していません"
+                    )
+                )
+            if len(np.unique(all_indices)) != len(all_indices):
+                raise forms.ValidationError(
+                    _("public_indices と private_indices に重複があります")
+                )
+            if len(all_indices) > 0:
+                if np.min(all_indices) < 0 or np.max(all_indices) >= len(labels):
+                    raise forms.ValidationError(
+                        _("public_indices または private_indices が範囲外です")
+                    )
+        except forms.ValidationError:
+            raise
+        except Exception:
+            raise forms.ValidationError(_("正解データnpzの読み込みに失敗しました"))
+        finally:
+            if hasattr(file, "seek"):
+                file.seek(0)
+
+        return file
 
 
 class CertificationTeamsForm(forms.ModelForm):

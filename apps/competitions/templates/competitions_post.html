@@ -20,7 +20,7 @@
     <div class="container">
       <div class="col-md-12 text-left"> 
             <h5>{% trans "予測結果の提出" %}</h5>
-            <h6>{% trans "投稿データは、正解データのカラムのみのcsv形式ファイルとして提出してください。" %}</h6>
+        <h6>{% trans "投稿データは、予測値のndarrayのみを含むnpz形式ファイルとして提出してください。" %}</h6>
             <h6>{% trans "データ数が異なる場合、投稿ができません。" %}</h6>  
             <br>
       </div>
@@ -40,20 +40,18 @@
             </table>
             <br><br>
 
+            {% if post_error %}
+              <div class="alert alert-danger" role="alert">{{ post_error }}</div>
+            {% endif %}
+            {% if form.errors %}
+              <div class="alert alert-danger" role="alert">{{ form.errors }}</div>
+            {% endif %}
+
             {% if Competition_data.status == 'active' %}
               {% if n_sub_daily < Competition_data.n_max_submissions_per_day %}
                 <input type="submit" value={% trans "投稿" %}>
               {% else %}
-                {% if post_error or form.errors %}
-                  {% if post_error  %}
-                    {{post_error}}<br>
-                  {% elif form.errors %}
-                    {{ form.errors }}
-                  {% endif %}
-                  <input type="submit" value={% trans "投稿" %}>
-                {% else %}
-                  <input type="submit" value={% trans "投稿" %} disabled="disabled">{% trans "投稿回数超過" %}
-                {% endif %}
+                <input type="submit" value={% trans "投稿" %} disabled="disabled">{% trans "投稿回数超過" %}
               {% endif %}
             {% elif Competition_data.status == 'coming' %}
               <input type="submit" value={% trans "投稿" %} disabled="disabled"> {% trans "開催期間前" %}

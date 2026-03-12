@@ -388,24 +388,69 @@ class CompetitionsPostView(LoginRequiredMixin, FormMixin, DetailView):
                     request.FILES["post_key"]
                 )
             except RuntimeError as e:
-                if str(e) == "Invalid sample size":
+                err_msg = str(e)
+                if err_msg == "Invalid sample size":
                     msg = _("投稿に失敗しました: データサイズが異なります")
-                    self.extra_context["post_error"] = msg
-                    logger.error(
-                        msg,
-                        extra={
-                            "request": self.request,
-                            "action": {
-                                "name": "submission",
-                                "is_valid": False,
-                                "public_lb": "",
-                                "private_lb": "",
-                            },
-                        },
+                elif err_msg == "Invalid npz format":
+                    msg = _("投稿に失敗しました: 投稿ファイルのnpz形式が不正です")
+                elif "Invalid gt npz" in err_msg:
+                    msg = _(
+                        "投稿に失敗しました: 正解データの形式が不正です。主催者に連絡してください"
                     )
-                    raise e
                 else:
-                    raise e
+                    msg = _("投稿に失敗しました: 評価処理でエラーが発生しました")
+
+                self.extra_context["post_error"] = msg
+                logger.exception(
+                    msg,
+                    extra={
+                        "request": self.request,
+                        "action": {
+                            "name": "submission",
+                            "is_valid": False,
+                            "public_lb": "",
+                            "private_lb": "",
+                            "error": err_msg,
+                        },
+                    },
+                )
+                return self.form_invalid(form)
+            except ValueError as e:
+                msg = _(
+                    "投稿に失敗しました: 投稿データと正解データの形式が評価指標に対応していません"
+                )
+                self.extra_context["post_error"] = msg
+                logger.exception(
+                    msg,
+                    extra={
+                        "request": self.request,
+                        "action": {
+                            "name": "submission",
+                            "is_valid": False,
+                            "public_lb": "",
+                            "private_lb": "",
+                            "error": str(e),
+                        },
+                    },
+                )
+                return self.form_invalid(form)
+            except Exception as e:
+                msg = _("投稿に失敗しました: 予期しないエラーが発生しました")
+                self.extra_context["post_error"] = msg
+                logger.exception(
+                    msg,
+                    extra={
+                        "request": self.request,
+                        "action": {
+                            "name": "submission",
+                            "is_valid": False,
+                            "public_lb": "",
+                            "private_lb": "",
+                            "error": str(e),
+                        },
+                    },
+                )
+                return self.form_invalid(form)
 
             # 保存
             post_obj = CompetitionPost(
