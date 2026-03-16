@@ -83,7 +83,7 @@ class CompetitionModel(models.Model):
         max_length=50,
         default="regression",
         choices=[
-            ("regression", _("回帰")),
+            ("regression", _("回帰問題（予測値は連続値）")),
             ("classification", _("分類")),
         ],
     )

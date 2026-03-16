@@ -196,7 +196,9 @@ class ManageUsersForm(forms.ModelForm):
             "is_active",
         )
         help_texts = {
-            "username": _("入力例：「bigdata001」。英数字で入力してください。"),
+            "username": _(
+                "入力例：「bigdata001」。英数字で入力してください。テクニカルペーパーで報告をしていただきます。"
+            ),
             "email": _("gmail アドレス"),
             "nickname": _(
                 "コンペティションで使用するニックネームを英数字で入力してください。"
