@@ -2,13 +2,14 @@
 {% load i18n %}
 
 {%block main%}
+{% get_current_language as LANGUAGE_CODE %}
 
 <!--main field---> 
 <div class="container">
     <div class="column_top" style="background-color:#143174;">
         <div class="col-md-12 text-left">
             <span style="color:#ffffff;">
-              <h5> {% trans "コンペティションの情報" %} : {{competition.title}}</h5>
+        <h5> {% trans "コンペティションの情報" %} : {% if LANGUAGE_CODE == 'en' and competition.title_en %}{{competition.title_en}}{% else %}{{competition.title}}{% endif %}</h5>
             </span>
         </div> 
     </div>
@@ -18,10 +19,10 @@
   <div class="container">
     <div class="col-md-12 text-left"> 
       <h5> {% trans "コンペティションの概要" %}</h5>
-      <h6>{{competition.competition_abstract | linebreaksbr}}</h6>  
+      <h6>{% if LANGUAGE_CODE == 'en' and competition.competition_abstract_en %}{{competition.competition_abstract_en | linebreaksbr}}{% else %}{{competition.competition_abstract | linebreaksbr}}{% endif %}</h6>  
       <br><hr>
       <h5> {% trans "コンペティションの説明" %}</h5>
-      <h6>{{competition.competition_description | linebreaksbr}}</h6>
+      <h6>{% if LANGUAGE_CODE == 'en' and competition.competition_description_en %}{{competition.competition_description_en | linebreaksbr}}{% else %}{{competition.competition_description | linebreaksbr}}{% endif %}</h6>
       <br><hr>
       <h5> {% trans "問題設定" %}</h5>
       <h6>{% trans "問題の種類 : " %} {{competition.problem_type}}</h6>

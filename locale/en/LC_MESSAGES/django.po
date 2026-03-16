@@ -826,7 +826,6 @@ msgid "中間スコア"
 msgstr "Intermediate score"
 
 #: apps/competitions/models.py:238
-#: apps/competitions/templates/competitions_main.html:54
 #: apps/competitions/templates/competitions_ranking.html:148
 #: apps/competitions/templates/competitions_ranking.html:262
 #: apps/competitions/templates/competitions_ranking.html:301
@@ -1257,19 +1256,19 @@ msgstr ""
 #: templates/participation_guide.html:60
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:52
 msgid "予測結果は"
-msgstr " "
+msgstr "You can submit "
 
 #: apps/competitions/templates/competitions_main.html:52
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:52
 msgid "1日"
-msgstr " "
+msgstr " your predictions up to "
 
 #: apps/competitions/templates/competitions_main.html:52
 #: apps/competitions/templates/competitions_post.html:28
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:52
 #: universityofbigdata/apps/competitions/templates/competitions_post.html:28
 msgid "回"
-msgstr " "
+msgstr " times "
 
 #: apps/competitions/templates/competitions_main.html:52
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:52
@@ -1292,7 +1291,11 @@ msgstr ". Intermediate scores are calculated on a subset of test data."
 #: templates/participation_guide.html:62
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:54
 msgid "コンペティション終了時に"
-msgstr "Calculated at "
+msgstr "The "
+
+#: apps/competitions/templates/competitions_main.html:54
+msgid "最終スコア"
+msgstr "final score "
 
 #: apps/competitions/templates/competitions_main.html:54
 #: templates/participation_guide.html:62
@@ -1300,7 +1303,7 @@ msgstr "Calculated at "
 msgid ""
 "が算出されます。最終スコアは、残りのテストデータを対象にして算出されます。"
 msgstr ""
-"at the end of the competition. A final score is calculated on the remaining "
+"will be calculated at the end of the competition on the remaining "
 "test data."
 
 #: apps/competitions/templates/competitions_main.html:55
@@ -1308,7 +1311,7 @@ msgstr ""
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:55
 msgid "最終的な順位は、最後に提出したモデルの最終スコアによって決定されます。"
 msgstr ""
-"The final ranking is determined by the final score of the last submitted "
+"The final ranking will be determined by the final score of the last submitted "
 "model."
 
 #: apps/competitions/templates/competitions_post.html:22

@@ -2,13 +2,14 @@
 {% load i18n %}
 
 {%block main%}
+{% get_current_language as LANGUAGE_CODE %}
 
 <!--main field---> 
 <div class="container">
     <div class="column_top" style="background-color:#143174;">
         <div class="col-md-12 text-left">
             <span style="color:#ffffff;">
-              <h5> {% trans "コンペティションの情報" %} : {{competition.title}}</h5>
+              <h5> {% trans "コンペティションの情報" %} : {% if LANGUAGE_CODE == 'en' and competition.title_en %}{{competition.title_en}}{% else %}{{competition.title}}{% endif %}</h5>
             </span>
         </div> 
     </div>
@@ -129,7 +130,7 @@
             <div class="column_top" style="background-color:#143174;">
                 <div class="col-md-12 text-left">
                     <span style="color:#ffffff;">
-                        <h5> {% trans "管理用情報" %} : {{competition.title}}</h5>
+                        <h5> {% trans "管理用情報" %} : {% if LANGUAGE_CODE == 'en' and competition.title_en %}{{competition.title_en}}{% else %}{{competition.title}}{% endif %}</h5>
                     </span>
                 </div>
             </div>
@@ -243,7 +244,7 @@
             <div class="column_top" style="background-color:#143174;">
                 <div class="col-md-12 text-left">
                     <span style="color:#ffffff;">
-                        <h5> {% trans "管理用情報" %} : {{competition.title}}</h5>
+                        <h5> {% trans "管理用情報" %} : {% if LANGUAGE_CODE == 'en' and competition.title_en %}{{competition.title_en}}{% else %}{{competition.title}}{% endif %}</h5>
                     </span>
                 </div>
             </div>

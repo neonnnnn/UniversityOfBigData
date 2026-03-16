@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import Http404
 from django.urls import reverse_lazy
 from django.utils import timezone
+from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _  # noqa F401
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import FormMixin
@@ -60,6 +61,8 @@ class CompetitionsListView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # contextは辞書型
+        language_code = get_language() or "ja"
+        is_english = language_code.startswith("en")
         status_list = [
             "coming",
             "active",
@@ -72,8 +75,14 @@ class CompetitionsListView(LoginRequiredMixin, ListView):
             for q_set in query_sets:
                 competition_dict = {}
                 competition_dict["id"] = q_set.id
-                competition_dict["title"] = q_set.title
-                competition_dict["competition_abstract"] = q_set.competition_abstract
+                competition_dict["title"] = (
+                    q_set.title_en if is_english and q_set.title_en else q_set.title
+                )
+                competition_dict["competition_abstract"] = (
+                    q_set.competition_abstract_en
+                    if is_english and q_set.competition_abstract_en
+                    else q_set.competition_abstract
+                )
                 competition_dict["status"] = q_set.status
                 competition_dict["open_datetime"] = q_set.open_datetime
                 competition_dict["close_datetime"] = q_set.close_datetime
