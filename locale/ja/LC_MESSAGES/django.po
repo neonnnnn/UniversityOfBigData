@@ -1951,8 +1951,6 @@ msgid "ユーザー登録ページ"
 msgstr "ユーザー管理ページ"
 
 #: apps/management/urls.py:31 universityofbigdata/apps/management/urls.py:53
-#, fuzzy
-#| msgid "参加認証コード設定"
 msgid "参加認証コード設定ページ"
 msgstr "参加認証コード設定"
 
@@ -2238,8 +2236,6 @@ msgstr "現在開催予定のコンペティションはありません"
 #: universityofbigdata/apps/accounts/forms.py:26
 #: universityofbigdata/apps/accounts/forms.py:57
 #: universityofbigdata/apps/management/forms.py:200
-#, fuzzy
-#| msgid "入力例：「bigdata001」。英数字で入力してください。"
 msgid ""
 "入力例：「bigdata001」。英数字で入力してください。テクニカルペーパーで報告を"
 "していただきます。"
@@ -2249,8 +2245,6 @@ msgstr ""
 
 #: universityofbigdata/apps/competitions/forms.py:99
 #: universityofbigdata/apps/competitions/test_forms.py:41
-#, fuzzy
-#| msgid "拡張子はcsvのみです"
 msgid "拡張子はnpzのみです"
 msgstr "拡張子はnpzのみです"
 
@@ -2259,16 +2253,10 @@ msgid "回帰問題（予測値は連続値）"
 msgstr "回帰問題（予測値は連続値）"
 
 #: universityofbigdata/apps/competitions/templates/competitions_base_image.html:19
-#, fuzzy
-#| msgid "ビッグデータ大学"
 msgid "ビッグデータ大学 for GeoSciAI 2026"
 msgstr "ビッグデータ大学 for GeoSciAI 2026"
 
 #: universityofbigdata/apps/competitions/templates/competitions_base_image.html:20
-#, fuzzy
-#| msgid ""
-#| "予測用データは、コンペティションのためだけに、またコンペティション期間中の"
-#| "み使用を許可します。"
 msgid ""
 "ビッグデータ大学 for GeoSciAI 2026 は、GeoSciAI 2026 コンペティションのための"
 "コンペティションシステムです。"
@@ -2281,16 +2269,10 @@ msgid "GeoSciAI 2026 オフィシャルサイト"
 msgstr "GeoSciAI 2026 オフィシャルサイト"
 
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:41
-#, fuzzy
-#| msgid "是非コンペティションに挑戦してみてください。"
 msgid "にアクセスし、コンペティションの詳細を確認してください。"
 msgstr "にアクセスし、コンペティションの詳細を確認してください。"
 
 #: universityofbigdata/apps/competitions/templates/competitions_post.html:23
-#, fuzzy
-#| msgid ""
-#| "投稿データは、正解データのカラムのみのcsv形式ファイルとして提出してくださ"
-#| "い。"
 msgid ""
 "投稿データは、予測値のndarrayのみを含むnpz形式ファイルとして提出してくださ"
 "い。配列名はどのようなものでも構いません。"
@@ -2299,46 +2281,32 @@ msgstr ""
 "い。配列名はどのようなものでも構いません。"
 
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:193
-#, fuzzy
-#| msgid "ランキングは、最新提出結果のスコアが表示されます。"
 msgid "公開ランキングは中間スコアを表示します。"
 msgstr "ランキングは、最新提出結果のスコアが表示されます。"
 
 #: universityofbigdata/apps/competitions/views.py:395
-#, fuzzy
-#| msgid "投稿に失敗しました: データサイズが異なります"
 msgid "投稿に失敗しました: 投稿ファイルのnpz形式が不正です"
 msgstr "投稿に失敗しました: 投稿ファイルのnpz形式が不正です"
 
 #: universityofbigdata/apps/competitions/views.py:398
-#, fuzzy
-#| msgid "投稿に失敗しました: データサイズが異なります"
 msgid ""
 "投稿に失敗しました: 正解データの形式が不正です。主催者に連絡してください"
 msgstr "投稿に失敗しました: 正解データの形式が不正です。主催者に連絡してください"
 
 #: universityofbigdata/apps/competitions/views.py:401
-#, fuzzy
-#| msgid "投稿に失敗しました: データサイズが異なります"
 msgid "投稿に失敗しました: 評価処理でエラーが発生しました"
 msgstr "投稿に失敗しました: 評価処理でエラーが発生しました"
 
 #: universityofbigdata/apps/competitions/views.py:420
-#, fuzzy
-#| msgid "投稿に失敗しました: データサイズが異なります"
 msgid ""
 "投稿に失敗しました: 投稿データと正解データの形式が評価指標に対応していません"
 msgstr "投稿に失敗しました: 投稿データと正解データの形式が評価指標に対応していません"
 
 #: universityofbigdata/apps/competitions/views.py:438
-#, fuzzy
-#| msgid "投稿に失敗しました: データサイズが異なります"
 msgid "投稿に失敗しました: 予期しないエラーが発生しました"
 msgstr "投稿に失敗しました: 予期しないエラーが発生しました"
 
 #: universityofbigdata/apps/management/forms.py:101
-#, fuzzy
-#| msgid "正解データファイル"
 msgid "正解データファイルの拡張子はnpzのみです"
 msgstr "正解データファイルの拡張子はnpzのみです"
 

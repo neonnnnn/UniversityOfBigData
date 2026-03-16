@@ -1137,19 +1137,19 @@ msgstr "How to enter the competition"
 #: templates/participation_guide.html:43
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:42
 msgid "まず各コンペティションのページから、"
-msgstr "First, from each competition page, "
+msgstr "First, from each competition page, please download "
 
 #: apps/competitions/templates/competitions_main.html:41
 #: templates/participation_guide.html:43
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:42
 msgid "予測用データ"
-msgstr "Please download "
+msgstr "data for prediction."
 
 #: apps/competitions/templates/competitions_main.html:41
 #: templates/participation_guide.html:43
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:42
 msgid "をダウンロードしてください。"
-msgstr "data for prediction. "
+msgstr ""
 
 #: apps/competitions/templates/competitions_main.html:42
 #: templates/participation_guide.html:44
@@ -1161,25 +1161,25 @@ msgstr "Please train your model using the "
 #: templates/participation_guide.html:44
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:43
 msgid "訓練データ"
-msgstr "training data, "
+msgstr "training data"
 
 #: apps/competitions/templates/competitions_main.html:42
 #: templates/participation_guide.html:44
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:43
 msgid "を用いて学習を行い、"
-msgstr "and generate "
+msgstr ", and generate "
 
 #: apps/competitions/templates/competitions_main.html:42
 #: templates/participation_guide.html:44
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:43
 msgid "テストデータ"
-msgstr "predictions for "
+msgstr "predictions for the test data"
 
 #: apps/competitions/templates/competitions_main.html:42
 #: templates/participation_guide.html:44
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:43
 msgid "に対する予測結果を作成してください。"
-msgstr "the test data."
+msgstr "."
 
 #: apps/competitions/templates/competitions_main.html:43
 #: templates/participation_guide.html:45
@@ -1191,13 +1191,13 @@ msgstr "On each competition page, "
 #: templates/participation_guide.html:45
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:44
 msgid "予測結果を提出"
-msgstr "please submit your prediction results."
+msgstr "please submit your prediction."
 
 #: apps/competitions/templates/competitions_main.html:43
 #: templates/participation_guide.html:45
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:44
 msgid "してください。"
-msgstr " "
+msgstr "."
 
 #: apps/competitions/templates/competitions_main.html:44
 #: templates/participation_guide.html:46
@@ -1228,7 +1228,7 @@ msgstr ""
 #: templates/participation_guide.html:59
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:52
 msgid "予測結果は"
-msgstr "Prediction results can be submitted up to"
+msgstr ""
 
 #: apps/competitions/templates/competitions_main.html:51
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:52
@@ -1958,8 +1958,6 @@ msgid "ユーザー登録ページ"
 msgstr "User management form"
 
 #: apps/management/urls.py:31 universityofbigdata/apps/management/urls.py:53
-#, fuzzy
-#| msgid "参加認証コード設定"
 msgid "参加認証コード設定ページ"
 msgstr "Authentication code"
 
@@ -2146,12 +2144,12 @@ msgstr ""
 
 #: templates/participation_guide.html:59
 msgid "1日既定の回数"
-msgstr "You can submit up to a set number of times per day."
+msgstr "You can submit up to a set number of times per day "
 
 #: templates/participation_guide.html:59
 msgid ""
 "まで提出することができます。(回数はコンペティション概要で説明されます。)"
-msgstr "(The number of times will be explained in the competition overview.)"
+msgstr "(The number of times will be explained in the competition overview)."
 
 #: templates/top.html:22
 msgid "ビッグデータ大学へようこそ"
@@ -2245,8 +2243,6 @@ msgstr "There are currently no competitions scheduled."
 #: universityofbigdata/apps/accounts/forms.py:26
 #: universityofbigdata/apps/accounts/forms.py:57
 #: universityofbigdata/apps/management/forms.py:200
-#, fuzzy
-#| msgid "入力例：「bigdata001」。英数字で入力してください。"
 msgid ""
 "入力例：「bigdata001」。英数字で入力してください。テクニカルペーパーで報告を"
 "していただきます。"
@@ -2256,8 +2252,6 @@ msgstr ""
 
 #: universityofbigdata/apps/competitions/forms.py:99
 #: universityofbigdata/apps/competitions/test_forms.py:41
-#, fuzzy
-#| msgid "拡張子はcsvのみです"
 msgid "拡張子はnpzのみです"
 msgstr "Only NPZ files are accepted."
 
@@ -2266,16 +2260,10 @@ msgid "回帰問題（予測値は連続値）"
 msgstr "Regression"
 
 #: universityofbigdata/apps/competitions/templates/competitions_base_image.html:19
-#, fuzzy
-#| msgid "ビッグデータ大学"
 msgid "ビッグデータ大学 for GeoSciAI 2026"
 msgstr "University of Big Data for GeoSciAI 2026"
 
 #: universityofbigdata/apps/competitions/templates/competitions_base_image.html:20
-#, fuzzy
-#| msgid ""
-#| "予測用データは、コンペティションのためだけに、またコンペティション期間中の"
-#| "み使用を許可します。"
 msgid ""
 "ビッグデータ大学 for GeoSciAI 2026 は、GeoSciAI 2026 コンペティションのための"
 "コンペティションシステムです。"
@@ -2288,16 +2276,10 @@ msgid "GeoSciAI 2026 オフィシャルサイト"
 msgstr "Please visit the GeoSciAI 2026 official website "
 
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:41
-#, fuzzy
-#| msgid "是非コンペティションに挑戦してみてください。"
 msgid "にアクセスし、コンペティションの詳細を確認してください。"
 msgstr "to check the competition details."
 
 #: universityofbigdata/apps/competitions/templates/competitions_post.html:23
-#, fuzzy
-#| msgid ""
-#| "投稿データは、正解データのカラムのみのcsv形式ファイルとして提出してくださ"
-#| "い。"
 msgid ""
 "投稿データは、予測値のndarrayのみを含むnpz形式ファイルとして提出してくださ"
 "い。配列名はどのようなものでも構いません。"
@@ -2306,46 +2288,32 @@ msgstr ""
 "of prediced values. Any array name is acceptable."
 
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:193
-#, fuzzy
-#| msgid "ランキングは、最新提出結果のスコアが表示されます。"
 msgid "公開ランキングは中間スコアを表示します。"
 msgstr "Ranking displays the scores of the latest submission results."
 
 #: universityofbigdata/apps/competitions/views.py:395
-#, fuzzy
-#| msgid "投稿に失敗しました: データサイズが異なります"
 msgid "投稿に失敗しました: 投稿ファイルのnpz形式が不正です"
 msgstr "The format of npz is invalid."
 
 #: universityofbigdata/apps/competitions/views.py:398
-#, fuzzy
-#| msgid "投稿に失敗しました: データサイズが異なります"
 msgid ""
 "投稿に失敗しました: 正解データの形式が不正です。主催者に連絡してください"
 msgstr "Invalid ground truth data format. Please contact the organizers."
 
 #: universityofbigdata/apps/competitions/views.py:401
-#, fuzzy
-#| msgid "投稿に失敗しました: データサイズが異なります"
 msgid "投稿に失敗しました: 評価処理でエラーが発生しました"
 msgstr "Evaluation error."
 
 #: universityofbigdata/apps/competitions/views.py:420
-#, fuzzy
-#| msgid "投稿に失敗しました: データサイズが異なります"
 msgid ""
 "投稿に失敗しました: 投稿データと正解データの形式が評価指標に対応していません"
 msgstr "Submission and ground truth data formats do not match the evaluation metric."
 
 #: universityofbigdata/apps/competitions/views.py:438
-#, fuzzy
-#| msgid "投稿に失敗しました: データサイズが異なります"
 msgid "投稿に失敗しました: 予期しないエラーが発生しました"
 msgstr "Unexpected error"
 
 #: universityofbigdata/apps/management/forms.py:101
-#, fuzzy
-#| msgid "正解データファイル"
 msgid "正解データファイルの拡張子はnpzのみです"
 msgstr "The ground truth file must be in .npz format"
 
