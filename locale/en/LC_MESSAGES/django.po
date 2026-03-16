@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-16 14:41+0900\n"
+"POT-Creation-Date: 2026-03-16 16:29+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -129,6 +129,10 @@ msgstr "A user with that nickname already exists."
 #: apps/accounts/models.py:152 universityofbigdata/apps/accounts/models.py:155
 msgid "affiliation organization"
 msgstr "Affiliation organization"
+
+#: apps/accounts/models.py:157
+msgid "student number"
+msgstr ""
 
 #: apps/accounts/models.py:167 universityofbigdata/apps/accounts/models.py:165
 msgid "invitation code"
@@ -864,14 +868,6 @@ msgstr ""
 "Part of this project is supported by  the Strategic Basic Research Promotion "
 "Program CREST  [Collaborative Human Computation Platform for Humans and AI]."
 
-#: apps/competitions/templates/competitions_base_image.html:20
-msgid ""
-"ビッグデータ大学は、実際のデータ解析を通じてデータ解析の実践的技術を身に着け"
-"るための学びの場です。是非コンペティションに挑戦してみてください。"
-msgstr ""
-"University of Big Data is an online forum to learn data analytics through "
-"hands-on data analysis"
-
 #: apps/competitions/templates/competitions_base_nav.html:8
 #: universityofbigdata/apps/competitions/templates/competitions_base_nav.html:8
 msgid "概要"
@@ -1143,13 +1139,13 @@ msgstr "First, from each competition page, please download "
 #: templates/participation_guide.html:43
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:42
 msgid "予測用データ"
-msgstr "data for prediction."
+msgstr "data for prediction"
 
 #: apps/competitions/templates/competitions_main.html:41
 #: templates/participation_guide.html:43
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:42
 msgid "をダウンロードしてください。"
-msgstr ""
+msgstr "."
 
 #: apps/competitions/templates/competitions_main.html:42
 #: templates/participation_guide.html:44
@@ -1191,7 +1187,7 @@ msgstr "On each competition page, "
 #: templates/participation_guide.html:45
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:44
 msgid "予測結果を提出"
-msgstr "please submit your prediction."
+msgstr "please submit your prediction"
 
 #: apps/competitions/templates/competitions_main.html:43
 #: templates/participation_guide.html:45
@@ -1206,8 +1202,8 @@ msgid ""
 "予測結果を提出すると、スコアが表示されます。スコアを参考にして、予測手法の改"
 "善に取り組んでください。"
 msgstr ""
-"After you submit your prediction results, your score will be displayed. "
-"Use your score to improve your forecasting techniques."
+"After you submit your prediction results, your score will be displayed. Use "
+"your score to improve your forecasting techniques."
 
 #: apps/competitions/templates/competitions_main.html:47
 #: templates/participation_guide.html:55
@@ -1228,7 +1224,7 @@ msgstr ""
 #: templates/participation_guide.html:59
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:52
 msgid "予測結果は"
-msgstr ""
+msgstr " "
 
 #: apps/competitions/templates/competitions_main.html:51
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:52
@@ -2152,16 +2148,8 @@ msgid ""
 msgstr "(The number of times will be explained in the competition overview)."
 
 #: templates/top.html:22
-msgid "ビッグデータ大学へようこそ"
-msgstr "Welcome to University of Big Data"
-
-#: templates/top.html:23
-msgid ""
-"ビッグデータ大学は、実際のデータ解析を通じてデータ解析の実践的技術を身に着け"
-"るための学びの場です。"
-msgstr ""
-"University of Big Data is an online forum to learn data analytics through "
-"hands-on data analysis"
+msgid "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
+msgstr "Welcome to University of Big Data for GeoSciAI 2026"
 
 #: templates/top.html:23
 #: universityofbigdata/apps/competitions/templates/competitions_base_image.html:20
@@ -2186,11 +2174,17 @@ msgstr "Login"
 
 #: templates/top.html:40
 msgid ""
-"また、本サービスは講義等におけるデータ解析演習のプラットフォームとしてもご利"
-"用いただけます。"
+"GeoSciAI 2026 オフィシャルサイトは"
 msgstr ""
-"This service can also be used as a platform for data analysis exercises in "
-"lectures."
+"GeoSciAI 2026 official website is "
+
+#: templates/top.html:40
+msgid "こちら"
+msgstr "here"
+
+#: templates/top.html:40
+msgid "です。"
+msgstr "."
 
 #: templates/top.html:50
 msgid "登録者数"
@@ -2247,8 +2241,8 @@ msgid ""
 "入力例：「bigdata001」。英数字で入力してください。テクニカルペーパーで報告を"
 "していただきます。"
 msgstr ""
-"ex. [bigdata001] You will be required to report your"
-" username in the technical paper."
+"ex. [bigdata001] You will be required to report your username in the "
+"technical paper."
 
 #: universityofbigdata/apps/competitions/forms.py:99
 #: universityofbigdata/apps/competitions/test_forms.py:41
@@ -2263,13 +2257,14 @@ msgstr "Regression"
 msgid "ビッグデータ大学 for GeoSciAI 2026"
 msgstr "University of Big Data for GeoSciAI 2026"
 
+#: templates/top.html:23
 #: universityofbigdata/apps/competitions/templates/competitions_base_image.html:20
 msgid ""
 "ビッグデータ大学 for GeoSciAI 2026 は、GeoSciAI 2026 コンペティションのための"
 "コンペティションシステムです。"
 msgstr ""
-"University of Big Data for GeoSciAI 2026 is an online forum for "
-"GeoSciAI 2026."
+"University of Big Data for GeoSciAI 2026 is an online forum for GeoSciAI "
+"2026."
 
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:41
 msgid "GeoSciAI 2026 オフィシャルサイト"
@@ -2284,8 +2279,8 @@ msgid ""
 "投稿データは、予測値のndarrayのみを含むnpz形式ファイルとして提出してくださ"
 "い。配列名はどのようなものでも構いません。"
 msgstr ""
-"Please submit you prediction as a npz format file with only an ndarray "
-"of prediced values. Any array name is acceptable."
+"Please submit you prediction as a npz format file with only an ndarray of "
+"prediced values. Any array name is acceptable."
 
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:193
 msgid "公開ランキングは中間スコアを表示します。"
@@ -2307,7 +2302,8 @@ msgstr "Evaluation error."
 #: universityofbigdata/apps/competitions/views.py:420
 msgid ""
 "投稿に失敗しました: 投稿データと正解データの形式が評価指標に対応していません"
-msgstr "Submission and ground truth data formats do not match the evaluation metric."
+msgstr ""
+"Submission and ground truth data formats do not match the evaluation metric."
 
 #: universityofbigdata/apps/competitions/views.py:438
 msgid "投稿に失敗しました: 予期しないエラーが発生しました"
@@ -2321,17 +2317,16 @@ msgstr "The ground truth file must be in .npz format"
 msgid ""
 "正解データnpzには label, public_indices, private_indices の3キーが必要です"
 msgstr ""
-"The ground truth .npz file must contain three keys: "
-"label, public_indices, and private_indices."
-
+"The ground truth .npz file must contain three keys: label, public_indices, "
+"and private_indices."
 
 #: universityofbigdata/apps/management/forms.py:125
 msgid ""
 "public_indices と private_indices の要素数合計が label の要素数と一致していま"
 "せん"
 msgstr ""
-"The total number of elements in public_indices and private_indices "
-"does not match the size of label."
+"The total number of elements in public_indices and private_indices does not "
+"match the size of label."
 
 #: universityofbigdata/apps/management/forms.py:131
 msgid "public_indices と private_indices に重複があります"
