@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-16 16:29+0900\n"
+"POT-Creation-Date: 2026-03-16 16:53+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,6 +63,12 @@ msgstr "所属など　入力例：「ビッグデータ大学」。公開はさ
 #: apps/accounts/forms.py:26 universityofbigdata/apps/accounts/forms.py:35
 msgid "パスワード"
 msgstr "パスワード"
+
+#: apps/accounts/forms.py:49
+#: apps/management/templates/registration_users.html:32
+#: apps/management/templates/suspension_users.html:32
+msgid "学籍番号"
+msgstr ""
 
 #: apps/accounts/models.py:74 apps/accounts/models.py:86
 #: universityofbigdata/apps/accounts/models.py:73
@@ -863,6 +869,11 @@ msgstr ""
 "本プロジェクトの一部は、戦略的創造研究推進事業 CREST 「人とAIの協働ヒューマン"
 "コンピュテーション基盤」の支援を受けて実施されています。"
 
+#: apps/competitions/templates/competitions_base_image.html:20
+msgid ""
+"ビッグデータ大学は、実際のデータ解析を通じてデータ解析の実践的技術を身に着け"
+"るための学びの場です。是非コンペティションに挑戦してみてください。"
+msgstr ""
 
 #: apps/competitions/templates/competitions_base_nav.html:8
 #: universityofbigdata/apps/competitions/templates/competitions_base_nav.html:8
@@ -2141,14 +2152,17 @@ msgid ""
 msgstr ""
 "まで提出することができます。(回数はコンペティション概要で説明されます。)"
 
+#: templates/top.html:22
+#, fuzzy
+#| msgid "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
+msgid "ビッグデータ大学へようこそ"
+msgstr "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
+
 #: templates/top.html:23
-#: universityofbigdata/apps/competitions/templates/competitions_base_image.html:20
 msgid ""
-"ビッグデータ大学 for GeoSciAI 2026 は、GeoSciAI 2026 コンペティション"
-"のためのコンペティションシステムです。"
+"ビッグデータ大学は、実際のデータ解析を通じてデータ解析の実践的技術を身に着け"
+"るための学びの場です。"
 msgstr ""
-"ビッグデータ大学 for GeoSciAI 2026 は、GeoSciAI 2026 コンペティション"
-"のためのコンペティションシステムです。"
 
 #: templates/top.html:23
 #: universityofbigdata/apps/competitions/templates/competitions_base_image.html:20
@@ -2173,17 +2187,9 @@ msgstr "ログインする"
 
 #: templates/top.html:40
 msgid ""
-"GeoSciAI 2026 オフィシャルサイトは"
+"また、本サービスは講義等におけるデータ解析演習のプラットフォームとしてもご利"
+"用いただけます。"
 msgstr ""
-"GeoSciAI 2026 オフィシャルサイトは"
-
-#: templates/top.html:40
-msgid "こちら"
-msgstr "こちら"
-
-#: templates/top.html:40
-msgid "です。"
-msgstr "です。"
 
 #: templates/top.html:50
 msgid "登録者数"
@@ -2253,8 +2259,9 @@ msgid "回帰問題（予測値は連続値）"
 msgstr "回帰問題（予測値は連続値）"
 
 #: universityofbigdata/apps/competitions/templates/competitions_base_image.html:19
-#: templates/top.html:22
-msgid "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
+#, fuzzy
+#| msgid "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
+msgid "ビッグデータ大学 for GeoSciAI 2026"
 msgstr "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
 
 #: universityofbigdata/apps/competitions/templates/competitions_base_image.html:20
@@ -2354,6 +2361,12 @@ msgstr "トップページ"
 #: universityofbigdata/urls.py:17
 msgid "実装されていないページ"
 msgstr "実装されていないページ"
+
+#~ msgid "GeoSciAI 2026 オフィシャルサイトは"
+#~ msgstr "GeoSciAI 2026 オフィシャルサイトは"
+
+#~ msgid "こちら"
+#~ msgstr "こちら"
 
 #~ msgid "一般設定ページ"
 #~ msgstr "一般設定ページ"

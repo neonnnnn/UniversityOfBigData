@@ -2182,10 +2182,6 @@ msgstr ""
 msgid "こちら"
 msgstr "here"
 
-#: templates/top.html:40
-msgid "です。"
-msgstr "."
-
 #: templates/top.html:50
 msgid "登録者数"
 msgstr "Participants"
