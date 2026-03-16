@@ -18,33 +18,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: apps/accounts/admin.py:20 universityofbigdata/apps/accounts/admin.py:35
+#: apps/accounts/admin.py:35 universityofbigdata/apps/accounts/admin.py:35
 msgid "Permissions"
 msgstr "操作権限"
 
-#: apps/accounts/admin.py:22 apps/accounts/admin.py:30
+#: apps/accounts/admin.py:47 apps/accounts/admin.py:58
 #: universityofbigdata/apps/accounts/admin.py:47
 #: universityofbigdata/apps/accounts/admin.py:58
 msgid "Team"
 msgstr "チーム"
 
-#: apps/accounts/admin.py:23 universityofbigdata/apps/accounts/admin.py:48
+#: apps/accounts/admin.py:48 universityofbigdata/apps/accounts/admin.py:48
 msgid "Important dates"
 msgstr "Important dates"
 
-#: apps/accounts/forms.py:22 apps/accounts/forms.py:46
-#: apps/management/forms.py:144
-msgid "入力例：「bigdata001」。英数字で入力してください。"
-msgstr "入力例：「bigdata001」。英字で入力してください。"
+#: apps/accounts/forms.py:26 apps/accounts/forms.py:57
+#: apps/management/forms.py:200 universityofbigdata/apps/accounts/forms.py:26
+#: universityofbigdata/apps/accounts/forms.py:57
+#: universityofbigdata/apps/management/forms.py:200
+msgid ""
+"入力例：「bigdata001」。英数字で入力してください。テクニカルペーパーで報告を"
+"していただきます。"
+msgstr ""
+"入力例：「bigdata001」。英字で入力してください。テクニカルペーパーで報告をし"
+"ていただきます。"
 
-#: apps/accounts/forms.py:23 apps/accounts/forms.py:47
-#: apps/management/forms.py:145 universityofbigdata/apps/accounts/forms.py:28
+#: apps/accounts/forms.py:28 apps/accounts/forms.py:59
+#: apps/management/forms.py:202 universityofbigdata/apps/accounts/forms.py:28
 #: universityofbigdata/apps/accounts/forms.py:59
 #: universityofbigdata/apps/management/forms.py:202
 msgid "gmail アドレス"
 msgstr "gmail アドレス"
 
-#: apps/accounts/forms.py:24 apps/accounts/forms.py:48
+#: apps/accounts/forms.py:30 apps/accounts/forms.py:61
 #: universityofbigdata/apps/accounts/forms.py:30
 #: universityofbigdata/apps/accounts/forms.py:61
 msgid ""
@@ -54,35 +60,29 @@ msgstr ""
 "コンペティションで使用するニックネームを入力してください。ニックネームは本サ"
 "イト上で公開されます。<br>英数字でお願いします。登録後に変更可能です。"
 
-#: apps/accounts/forms.py:25 apps/accounts/forms.py:50
+#: apps/accounts/forms.py:33 apps/accounts/forms.py:64
 #: universityofbigdata/apps/accounts/forms.py:33
 #: universityofbigdata/apps/accounts/forms.py:64
 msgid "所属など　入力例：「ビッグデータ大学」。公開はされません"
 msgstr "所属など　入力例：「ビッグデータ大学」。公開はされません"
 
-#: apps/accounts/forms.py:26 universityofbigdata/apps/accounts/forms.py:35
+#: apps/accounts/forms.py:35 universityofbigdata/apps/accounts/forms.py:35
 msgid "パスワード"
 msgstr "パスワード"
 
-#: apps/accounts/forms.py:49
-#: apps/management/templates/registration_users.html:32
-#: apps/management/templates/suspension_users.html:32
-msgid "学籍番号"
-msgstr ""
-
-#: apps/accounts/models.py:74 apps/accounts/models.py:86
+#: apps/accounts/models.py:73 apps/accounts/models.py:85
 #: universityofbigdata/apps/accounts/models.py:73
 #: universityofbigdata/apps/accounts/models.py:85
 msgid "is_staff=Trueである必要があります。"
 msgstr "is_staff=Trueである必要があります。"
 
-#: apps/accounts/models.py:76 apps/accounts/models.py:90
+#: apps/accounts/models.py:75 apps/accounts/models.py:89
 #: universityofbigdata/apps/accounts/models.py:75
 #: universityofbigdata/apps/accounts/models.py:89
 msgid "is_participant=Trueである必要があります。"
 msgstr "is_participant=Trueである必要があります。"
 
-#: apps/accounts/models.py:88 universityofbigdata/apps/accounts/models.py:87
+#: apps/accounts/models.py:87 universityofbigdata/apps/accounts/models.py:87
 msgid "is_superuser=Trueである必要があります。"
 msgstr "is_superuser=Trueである必要があります。"
 
@@ -90,13 +90,13 @@ msgstr "is_superuser=Trueである必要があります。"
 msgid "A team with that team name already exists."
 msgstr "そのユーザー名は既に使われています。別の名前を指定してください。"
 
-#: apps/accounts/models.py:105 apps/accounts/models.py:106
+#: apps/accounts/models.py:107 apps/accounts/models.py:108
 #: universityofbigdata/apps/accounts/models.py:107
 #: universityofbigdata/apps/accounts/models.py:108
 msgid "チーム"
 msgstr "チーム"
 
-#: apps/accounts/models.py:125
+#: apps/accounts/models.py:128
 #: apps/management/templates/registration_users.html:30
 #: apps/management/templates/suspension_users.html:30
 #: universityofbigdata/apps/accounts/models.py:128
@@ -105,19 +105,19 @@ msgstr "チーム"
 msgid "username"
 msgstr "ユーザー名"
 
-#: apps/accounts/models.py:130 universityofbigdata/apps/accounts/models.py:133
+#: apps/accounts/models.py:133 universityofbigdata/apps/accounts/models.py:133
 msgid "A user with that username already exists."
 msgstr "そのユーザー名は既に使われています。別の名前を指定してください。"
 
-#: apps/accounts/models.py:134 universityofbigdata/apps/accounts/models.py:137
+#: apps/accounts/models.py:137 universityofbigdata/apps/accounts/models.py:137
 msgid "gmail address"
 msgstr "Gmailアドレス"
 
-#: apps/accounts/models.py:138 universityofbigdata/apps/accounts/models.py:141
+#: apps/accounts/models.py:141 universityofbigdata/apps/accounts/models.py:141
 msgid "A user with that email already exists."
 msgstr "そのユーザー名は既に使われています。別の名前を指定してください。"
 
-#: apps/accounts/models.py:142
+#: apps/accounts/models.py:145
 #: apps/management/templates/registration_users.html:29
 #: apps/management/templates/suspension_users.html:29
 #: universityofbigdata/apps/accounts/models.py:145
@@ -126,52 +126,48 @@ msgstr "そのユーザー名は既に使われています。別の名前を指
 msgid "nickname"
 msgstr "ニックネーム"
 
-#: apps/accounts/models.py:147 universityofbigdata/apps/accounts/models.py:150
+#: apps/accounts/models.py:150 universityofbigdata/apps/accounts/models.py:150
 msgid "A user with that nickname already exists."
 msgstr ""
 "そのニックネームは既に使われています。別のニックネームを指定してください。"
 
-#: apps/accounts/models.py:152 universityofbigdata/apps/accounts/models.py:155
+#: apps/accounts/models.py:155 universityofbigdata/apps/accounts/models.py:155
 msgid "affiliation organization"
 msgstr "所属"
 
-#: apps/accounts/models.py:157
-msgid "student number"
-msgstr ""
-
-#: apps/accounts/models.py:167 universityofbigdata/apps/accounts/models.py:165
+#: apps/accounts/models.py:165 universityofbigdata/apps/accounts/models.py:165
 msgid "invitation code"
 msgstr "認証コード"
 
-#: apps/accounts/models.py:170 universityofbigdata/apps/accounts/models.py:168
+#: apps/accounts/models.py:168 universityofbigdata/apps/accounts/models.py:168
 msgid "admin"
 msgstr "管理者"
 
-#: apps/accounts/models.py:171 universityofbigdata/apps/accounts/models.py:169
+#: apps/accounts/models.py:169 universityofbigdata/apps/accounts/models.py:169
 msgid "staff"
 msgstr "スタッフ"
 
-#: apps/accounts/models.py:172 universityofbigdata/apps/accounts/models.py:170
+#: apps/accounts/models.py:170 universityofbigdata/apps/accounts/models.py:170
 msgid "guest"
 msgstr "ゲスト"
 
-#: apps/accounts/models.py:174 universityofbigdata/apps/accounts/models.py:172
+#: apps/accounts/models.py:172 universityofbigdata/apps/accounts/models.py:172
 msgid "participant"
 msgstr "参加者"
 
-#: apps/accounts/models.py:175 universityofbigdata/apps/accounts/models.py:174
+#: apps/accounts/models.py:174 universityofbigdata/apps/accounts/models.py:174
 msgid "active"
 msgstr "活動中"
 
-#: apps/accounts/models.py:178 universityofbigdata/apps/accounts/models.py:177
+#: apps/accounts/models.py:177 universityofbigdata/apps/accounts/models.py:177
 msgid "date joined"
 msgstr "登録日"
 
-#: apps/accounts/models.py:186 universityofbigdata/apps/accounts/models.py:185
+#: apps/accounts/models.py:185 universityofbigdata/apps/accounts/models.py:185
 msgid "user"
 msgstr "ユーザー"
 
-#: apps/accounts/models.py:187 universityofbigdata/apps/accounts/models.py:186
+#: apps/accounts/models.py:186 universityofbigdata/apps/accounts/models.py:186
 msgid "users"
 msgstr "ユーザー"
 
@@ -338,17 +334,17 @@ msgstr ""
 msgid "ログイン"
 msgstr "ログイン"
 
-#: apps/authentication/urls.py:9
+#: apps/authentication/urls.py:12
 #: universityofbigdata/apps/authentication/urls.py:12
 msgid "ログインページ"
 msgstr "ログインページ"
 
-#: apps/authentication/urls.py:15
+#: apps/authentication/urls.py:22
 #: universityofbigdata/apps/authentication/urls.py:22
 msgid "参加案内ページ"
 msgstr "参加案内ページ"
 
-#: apps/authentication/views.py:96 apps/authentication/views.py:122
+#: apps/authentication/views.py:101 apps/authentication/views.py:132
 #: apps/competitions/templates/competitions_main.html:36
 #: apps/management/templates/certification_teams.html:41
 #: universityofbigdata/apps/authentication/views.py:101
@@ -358,7 +354,7 @@ msgstr "参加案内ページ"
 msgid "公開"
 msgstr "公開"
 
-#: apps/authentication/views.py:98 apps/authentication/views.py:124
+#: apps/authentication/views.py:103 apps/authentication/views.py:134
 #: apps/competitions/templates/competitions_main.html:36
 #: apps/management/templates/certification_teams.html:43
 #: universityofbigdata/apps/authentication/views.py:103
@@ -368,7 +364,7 @@ msgstr "公開"
 msgid "非公開"
 msgstr "非公開"
 
-#: apps/authentication/views.py:100 apps/authentication/views.py:126
+#: apps/authentication/views.py:105 apps/authentication/views.py:136
 #: apps/competitions/templates/competitions_list.html:58
 #: apps/competitions/templates/competitions_list.html:126
 #: apps/competitions/templates/competitions_list.html:193
@@ -382,7 +378,7 @@ msgstr "非公開"
 msgid "参加者制限あり"
 msgstr "参加者制限あり"
 
-#: apps/authentication/views.py:102 apps/authentication/views.py:128
+#: apps/authentication/views.py:107 apps/authentication/views.py:138
 #: apps/competitions/templates/competitions_list.html:60
 #: apps/competitions/templates/competitions_list.html:128
 #: apps/competitions/templates/competitions_list.html:195
@@ -396,214 +392,192 @@ msgstr "参加者制限あり"
 msgid "参加者制限なし"
 msgstr "参加者制限なし"
 
-#: apps/authentication/views.py:185
+#: apps/authentication/views.py:199
 #: universityofbigdata/apps/authentication/views.py:199
 msgid "参加認証に成功しました"
 msgstr "参加認証に成功しました"
 
-#: apps/authentication/views.py:195
+#: apps/authentication/views.py:210
 #: universityofbigdata/apps/authentication/views.py:210
 msgid "参加認証に失敗しました"
 msgstr "参加認証に失敗しました"
 
-#: apps/competitions/forms.py:39 apps/competitions/models.py:49
-#: apps/management/forms.py:67
+#: apps/competitions/forms.py:40 apps/competitions/models.py:50
+#: apps/management/forms.py:71
 #: universityofbigdata/apps/competitions/forms.py:40
 #: universityofbigdata/apps/competitions/models.py:50
 #: universityofbigdata/apps/management/forms.py:71
 msgid "コンペティションのタイトル（日本語）"
 msgstr "コンペティションのタイトル（日本語）"
 
-#: apps/competitions/forms.py:40 apps/competitions/models.py:52
-#: apps/management/forms.py:68
+#: apps/competitions/forms.py:41 apps/competitions/models.py:53
+#: apps/management/forms.py:72
 #: universityofbigdata/apps/competitions/forms.py:41
 #: universityofbigdata/apps/competitions/models.py:53
 #: universityofbigdata/apps/management/forms.py:72
 msgid "コンペティションのタイトル（英語）(optional)"
 msgstr "コンペティションのタイトル（英語）(optional)"
 
-#: apps/competitions/forms.py:41 apps/management/forms.py:69
+#: apps/competitions/forms.py:42 apps/management/forms.py:73
 #: universityofbigdata/apps/competitions/forms.py:42
 #: universityofbigdata/apps/management/forms.py:73
 msgid "コンペティション主催者"
 msgstr "コンペティション主催者"
 
-#: apps/competitions/forms.py:42 apps/competitions/models.py:61
-#: apps/management/forms.py:70
+#: apps/competitions/forms.py:43 apps/competitions/models.py:70
+#: apps/management/forms.py:74
 #: universityofbigdata/apps/competitions/forms.py:43
 #: universityofbigdata/apps/competitions/models.py:70
 #: universityofbigdata/apps/management/forms.py:74
 msgid "コンペティションの概要（日本語）"
 msgstr "コンペティションの概要（日本語）"
 
-#: apps/competitions/forms.py:43 apps/competitions/models.py:63
-#: apps/management/forms.py:71
+#: apps/competitions/forms.py:44 apps/competitions/models.py:73
+#: apps/management/forms.py:75
 #: universityofbigdata/apps/competitions/forms.py:44
 #: universityofbigdata/apps/competitions/models.py:73
 #: universityofbigdata/apps/management/forms.py:75
 msgid "コンペティションの概要（英語）(optional)"
 msgstr "コンペティションの概要（英語）(optional)"
 
-#: apps/competitions/forms.py:44 apps/competitions/models.py:66
-#: apps/management/forms.py:72
+#: apps/competitions/forms.py:45 apps/competitions/models.py:76
+#: apps/management/forms.py:76
 #: universityofbigdata/apps/competitions/forms.py:45
 #: universityofbigdata/apps/competitions/models.py:76
 #: universityofbigdata/apps/management/forms.py:76
 msgid "コンペティションの説明（日本語）"
 msgstr "コンペティションの説明（日本語）"
 
-#: apps/competitions/forms.py:45 apps/competitions/models.py:68
-#: apps/management/forms.py:73
+#: apps/competitions/forms.py:46 apps/competitions/models.py:79
+#: apps/management/forms.py:77
 #: universityofbigdata/apps/competitions/forms.py:46
 #: universityofbigdata/apps/competitions/models.py:79
 #: universityofbigdata/apps/management/forms.py:77
 msgid "コンペティションの説明（英語）(optional)"
 msgstr "コンペティションの説明（英語）(optional)"
 
-#: apps/competitions/forms.py:46 apps/competitions/models.py:71
-#: apps/management/forms.py:74
+#: apps/competitions/forms.py:47 apps/competitions/models.py:82
+#: apps/management/forms.py:78
 #: universityofbigdata/apps/competitions/forms.py:47
 #: universityofbigdata/apps/competitions/models.py:82
 #: universityofbigdata/apps/management/forms.py:78
 msgid "問題の種類"
 msgstr "問題の種類"
 
-#: apps/competitions/forms.py:47 apps/competitions/models.py:74
-#: apps/management/forms.py:75
+#: apps/competitions/forms.py:48 apps/competitions/models.py:91
+#: apps/management/forms.py:79
 #: universityofbigdata/apps/competitions/forms.py:48
 #: universityofbigdata/apps/competitions/models.py:91
 #: universityofbigdata/apps/management/forms.py:79
 msgid "評価指標"
 msgstr "評価指標"
 
-#: apps/competitions/forms.py:48 apps/competitions/models.py:77
-#: apps/management/forms.py:76
+#: apps/competitions/forms.py:49 apps/competitions/models.py:97
+#: apps/management/forms.py:80
 #: universityofbigdata/apps/competitions/forms.py:49
 #: universityofbigdata/apps/competitions/models.py:97
 #: universityofbigdata/apps/management/forms.py:80
 msgid "リーダーボードの種類"
 msgstr "リーダーボードの種類"
 
-#: apps/competitions/forms.py:49 apps/competitions/models.py:80
-#: apps/management/forms.py:77
+#: apps/competitions/forms.py:50 apps/competitions/models.py:104
+#: apps/management/forms.py:81
 #: universityofbigdata/apps/competitions/forms.py:50
 #: universityofbigdata/apps/competitions/models.py:104
 #: universityofbigdata/apps/management/forms.py:81
 msgid "フォーラムの使用"
 msgstr "フォーラムの使用"
 
-#: apps/competitions/forms.py:50 apps/competitions/models.py:83
-#: apps/management/forms.py:78
+#: apps/competitions/forms.py:51 apps/competitions/models.py:109
+#: apps/management/forms.py:82
 #: universityofbigdata/apps/competitions/forms.py:51
 #: universityofbigdata/apps/competitions/models.py:109
 #: universityofbigdata/apps/management/forms.py:82
 msgid "コンペティション開始日"
 msgstr "コンペティション開始日"
 
-#: apps/competitions/forms.py:51 apps/competitions/models.py:84
-#: apps/management/forms.py:79
+#: apps/competitions/forms.py:52 apps/competitions/models.py:112
+#: apps/management/forms.py:83
 #: universityofbigdata/apps/competitions/forms.py:52
 #: universityofbigdata/apps/competitions/models.py:112
 #: universityofbigdata/apps/management/forms.py:83
 msgid "コンペティション終了日"
 msgstr "コンペティション終了日"
 
-#: apps/competitions/forms.py:52 apps/competitions/models.py:87
-#: apps/management/forms.py:80
+#: apps/competitions/forms.py:53 apps/competitions/models.py:116
+#: apps/management/forms.py:84
 #: universityofbigdata/apps/competitions/forms.py:53
 #: universityofbigdata/apps/competitions/models.py:116
 #: universityofbigdata/apps/management/forms.py:84
 msgid "公開設定"
 msgstr "公開設定"
 
-#: apps/competitions/forms.py:53 apps/competitions/models.py:88
-#: apps/management/forms.py:81
+#: apps/competitions/forms.py:54 apps/competitions/models.py:117
+#: apps/management/forms.py:85
 #: universityofbigdata/apps/competitions/forms.py:54
 #: universityofbigdata/apps/competitions/models.py:117
 #: universityofbigdata/apps/management/forms.py:85
 msgid "参加者制限"
 msgstr "参加者制限"
 
-#: apps/competitions/forms.py:54 apps/competitions/models.py:90
-#: apps/management/forms.py:82
+#: apps/competitions/forms.py:55 apps/competitions/models.py:118
+#: apps/management/forms.py:86
 #: universityofbigdata/apps/competitions/forms.py:55
 #: universityofbigdata/apps/competitions/models.py:118
 #: universityofbigdata/apps/management/forms.py:86
 msgid "１日の最大投稿回数"
 msgstr "１日の最大投稿回数"
 
-#: apps/competitions/forms.py:55 apps/competitions/models.py:94
-#: apps/management/forms.py:83
+#: apps/competitions/forms.py:56 apps/competitions/models.py:122
+#: apps/management/forms.py:87
 #: universityofbigdata/apps/competitions/forms.py:56
 #: universityofbigdata/apps/competitions/models.py:122
 #: universityofbigdata/apps/management/forms.py:87
 msgid "中間評価に使うデータの割合"
 msgstr "中間評価に使うデータの割合"
 
-#: apps/competitions/forms.py:56 apps/competitions/models.py:95
-#: apps/management/forms.py:84
+#: apps/competitions/forms.py:57 apps/competitions/models.py:124
+#: apps/management/forms.py:88
 #: universityofbigdata/apps/competitions/forms.py:57
 #: universityofbigdata/apps/competitions/models.py:124
 #: universityofbigdata/apps/management/forms.py:88
 msgid "予測用データファイル"
 msgstr "予測用データファイル"
 
-#: apps/competitions/forms.py:57 apps/competitions/models.py:96
-#: apps/management/forms.py:85
+#: apps/competitions/forms.py:58 apps/competitions/models.py:126
+#: apps/management/forms.py:89
 #: universityofbigdata/apps/competitions/forms.py:58
 #: universityofbigdata/apps/competitions/models.py:126
 #: universityofbigdata/apps/management/forms.py:89
 msgid "正解データファイル"
 msgstr "正解データファイル"
 
-#: apps/competitions/forms.py:58 apps/competitions/models.py:97
-#: apps/management/forms.py:86
+#: apps/competitions/forms.py:59 apps/competitions/models.py:128
+#: apps/management/forms.py:90
 #: universityofbigdata/apps/competitions/forms.py:59
 #: universityofbigdata/apps/competitions/models.py:128
 #: universityofbigdata/apps/management/forms.py:90
 msgid "ファイルの説明（日本語）"
 msgstr "ファイルの説明（日本語）"
 
-#: apps/competitions/forms.py:59 apps/competitions/models.py:99
-#: apps/management/forms.py:87
+#: apps/competitions/forms.py:60 apps/competitions/models.py:130
+#: apps/management/forms.py:91
 #: universityofbigdata/apps/competitions/forms.py:60
 #: universityofbigdata/apps/competitions/models.py:130
 #: universityofbigdata/apps/management/forms.py:91
 msgid "ファイルの説明（英語）(optional)"
 msgstr "ファイルの説明（英語）(optional)"
 
-#: apps/competitions/forms.py:97 apps/competitions/test_forms.py:36
-msgid "拡張子はcsvのみです"
-msgstr "拡張子はcsvのみです"
+#: apps/competitions/forms.py:99 apps/competitions/test_forms.py:41
+#: universityofbigdata/apps/competitions/forms.py:99
+#: universityofbigdata/apps/competitions/test_forms.py:41
+msgid "拡張子はnpzのみです"
+msgstr "拡張子はnpzのみです"
 
-#: apps/competitions/management/commands/runapscheduler.py:25
-#: apps/competitions/models.py:105
-#: apps/competitions/templates/competitions_list.html:93
-#: universityofbigdata/apps/competitions/models.py:139
-#: universityofbigdata/apps/competitions/templates/competitions_list.html:93
-msgid "開催準備中"
-msgstr "開催準備中"
-
-#: apps/competitions/management/commands/runapscheduler.py:26
-#: apps/competitions/models.py:106
-#: apps/competitions/templates/competitions_list.html:25
-#: universityofbigdata/apps/competitions/models.py:140
-#: universityofbigdata/apps/competitions/templates/competitions_list.html:25
-msgid "開催中"
-msgstr "開催中"
-
-#: apps/competitions/management/commands/runapscheduler.py:27
-#: apps/competitions/models.py:107
-#: apps/competitions/templates/competitions_list.html:160
-#: universityofbigdata/apps/competitions/models.py:141
-#: universityofbigdata/apps/competitions/templates/competitions_list.html:160
-msgid "開催終了"
-msgstr "開催終了"
-
-#: apps/competitions/management/commands/runapscheduler.py:40
-#: apps/competitions/management/commands/runapscheduler.py:51
-#: apps/competitions/management/commands/runapscheduler.py:56
-#: apps/competitions/models.py:132 apps/competitions/models.py:133
+#: apps/competitions/management/commands/runapscheduler.py:33
+#: apps/competitions/management/commands/runapscheduler.py:46
+#: apps/competitions/management/commands/runapscheduler.py:53
+#: apps/competitions/models.py:167 apps/competitions/models.py:168
 #: universityofbigdata/apps/competitions/management/commands/runapscheduler.py:33
 #: universityofbigdata/apps/competitions/management/commands/runapscheduler.py:46
 #: universityofbigdata/apps/competitions/management/commands/runapscheduler.py:53
@@ -612,53 +586,54 @@ msgstr "開催終了"
 msgid "コンペティション"
 msgstr "コンペティション"
 
-#: apps/competitions/management/commands/runapscheduler.py:40
+#: apps/competitions/management/commands/runapscheduler.py:33
 #: apps/competitions/templates/competitions_ranking.html:41
 #: universityofbigdata/apps/competitions/management/commands/runapscheduler.py:33
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:41
 msgid "開催準備中です。"
 msgstr "開催準備中です。"
 
-#: apps/competitions/management/commands/runapscheduler.py:51
+#: apps/competitions/management/commands/runapscheduler.py:46
 #: universityofbigdata/apps/competitions/management/commands/runapscheduler.py:46
 msgid "が終了しました。"
 msgstr "が終了しました。"
 
-#: apps/competitions/management/commands/runapscheduler.py:56
+#: apps/competitions/management/commands/runapscheduler.py:53
 #: universityofbigdata/apps/competitions/management/commands/runapscheduler.py:53
 msgid "が始まりました。"
 msgstr "が始まりました。"
 
-#: apps/competitions/models.py:56
+#: apps/competitions/models.py:62
 #: universityofbigdata/apps/competitions/models.py:62
 msgid "主催者"
 msgstr "主催者"
 
-#: apps/competitions/models.py:58
+#: apps/competitions/models.py:67
 #: universityofbigdata/apps/competitions/models.py:67
 msgid "主催者名(控え)"
 msgstr "主催者名(控え)"
 
-#: apps/competitions/models.py:72
-msgid "回帰"
-msgstr "回帰"
+#: apps/competitions/models.py:86
+#: universityofbigdata/apps/competitions/models.py:86
+msgid "回帰問題（予測値は連続値）"
+msgstr "回帰問題（予測値は連続値）"
 
-#: apps/competitions/models.py:72
+#: apps/competitions/models.py:87
 #: universityofbigdata/apps/competitions/models.py:87
 msgid "分類"
 msgstr "分類"
 
-#: apps/competitions/models.py:78
+#: apps/competitions/models.py:101
 #: universityofbigdata/apps/competitions/models.py:101
 msgid "標準"
 msgstr "標準"
 
-#: apps/competitions/models.py:82
+#: apps/competitions/models.py:106
 #: universityofbigdata/apps/competitions/models.py:106
 msgid "コンペティション登録日"
 msgstr "コンペティション登録日"
 
-#: apps/competitions/models.py:103
+#: apps/competitions/models.py:135
 #: apps/competitions/templates/competitions_list.html:68
 #: apps/competitions/templates/competitions_list.html:136
 #: apps/competitions/templates/competitions_list.html:203
@@ -669,42 +644,63 @@ msgstr "コンペティション登録日"
 msgid "状態"
 msgstr "状態"
 
-#: apps/competitions/models.py:110
+#: apps/competitions/models.py:139
+#: apps/competitions/templates/competitions_list.html:93
+#: universityofbigdata/apps/competitions/models.py:139
+#: universityofbigdata/apps/competitions/templates/competitions_list.html:93
+msgid "開催準備中"
+msgstr "開催準備中"
+
+#: apps/competitions/models.py:140
+#: apps/competitions/templates/competitions_list.html:25
+#: universityofbigdata/apps/competitions/models.py:140
+#: universityofbigdata/apps/competitions/templates/competitions_list.html:25
+msgid "開催中"
+msgstr "開催中"
+
+#: apps/competitions/models.py:141
+#: apps/competitions/templates/competitions_list.html:160
+#: universityofbigdata/apps/competitions/models.py:141
+#: universityofbigdata/apps/competitions/templates/competitions_list.html:160
+msgid "開催終了"
+msgstr "開催終了"
+
+#: apps/competitions/models.py:145
 #: universityofbigdata/apps/competitions/models.py:145
 msgid "参加者数"
 msgstr "参加者数"
 
-#: apps/competitions/models.py:111
+#: apps/competitions/models.py:146
 #: universityofbigdata/apps/competitions/models.py:146
 msgid "参加チーム数"
 msgstr "参加チーム数"
 
-#: apps/competitions/models.py:112
+#: apps/competitions/models.py:147
 #: universityofbigdata/apps/competitions/models.py:147
 msgid "承認数"
 msgstr "承認数"
 
-#: apps/competitions/models.py:113
+#: apps/competitions/models.py:148
 #: universityofbigdata/apps/competitions/models.py:148
 msgid "投稿数"
 msgstr "投稿数"
 
-#: apps/competitions/models.py:116
+#: apps/competitions/models.py:151
 #: universityofbigdata/apps/competitions/models.py:151
 msgid "認証コード"
 msgstr "認証コード"
 
-#: apps/competitions/models.py:121
+#: apps/competitions/models.py:156
 #: universityofbigdata/apps/competitions/models.py:156
 msgid "優勝チーム"
 msgstr "優勝チーム"
 
-#: apps/competitions/models.py:128
+#: apps/competitions/models.py:163
 #: universityofbigdata/apps/competitions/models.py:163
 msgid "表示されるスコアの小数点以下の桁数"
 msgstr "表示されるスコアの小数点以下の桁数"
 
-#: apps/competitions/models.py:172 apps/discussion/models.py:18
+#: apps/competitions/models.py:207 apps/discussion/models.py:25
 #: apps/management/templates/certification_teams.html:29
 #: universityofbigdata/apps/competitions/models.py:207
 #: universityofbigdata/apps/discussion/models.py:25
@@ -712,17 +708,17 @@ msgstr "表示されるスコアの小数点以下の桁数"
 msgid "コンペティション名"
 msgstr "コンペティション名"
 
-#: apps/competitions/models.py:173 apps/discussion/models.py:19
-#: apps/discussion/models.py:50
+#: apps/competitions/models.py:209 apps/discussion/models.py:27
+#: apps/discussion/models.py:97
 #: universityofbigdata/apps/competitions/models.py:209
 #: universityofbigdata/apps/discussion/models.py:27
 #: universityofbigdata/apps/discussion/models.py:97
 msgid "投稿日"
 msgstr "投稿日"
 
-#: apps/competitions/models.py:176 apps/discussion/models.py:20
-#: apps/discussion/models.py:26 apps/discussion/models.py:51
-#: apps/discussion/models.py:57
+#: apps/competitions/models.py:214 apps/discussion/models.py:32
+#: apps/discussion/models.py:60 apps/discussion/models.py:102
+#: apps/discussion/models.py:130
 #: apps/discussion/templates/discussion_competition.html:62
 #: apps/discussion/templates/discussion_post.html:99
 #: universityofbigdata/apps/competitions/models.py:214
@@ -735,8 +731,8 @@ msgstr "投稿日"
 msgid "投稿チーム"
 msgstr "投稿チーム"
 
-#: apps/competitions/models.py:179 apps/discussion/models.py:21
-#: apps/discussion/models.py:52
+#: apps/competitions/models.py:221 apps/discussion/models.py:39
+#: apps/discussion/models.py:109
 #: apps/discussion/templates/discussion_competition.html:26
 #: apps/discussion/templates/discussion_competition.html:63
 #: apps/discussion/templates/discussion_post.html:26
@@ -753,29 +749,29 @@ msgstr "投稿チーム"
 msgid "投稿者"
 msgstr "投稿者"
 
-#: apps/competitions/models.py:181
+#: apps/competitions/models.py:225
 #: universityofbigdata/apps/competitions/models.py:225
 msgid "投稿データファイル"
 msgstr "投稿データファイル"
 
-#: apps/competitions/models.py:182 apps/discussion/models.py:24
-#: apps/discussion/models.py:55
+#: apps/competitions/models.py:228 apps/discussion/models.py:50
+#: apps/discussion/models.py:120
 #: universityofbigdata/apps/competitions/models.py:228
 #: universityofbigdata/apps/discussion/models.py:50
 #: universityofbigdata/apps/discussion/models.py:120
 msgid "投稿者名"
 msgstr "投稿者名"
 
-#: apps/competitions/models.py:183 apps/discussion/models.py:25
-#: apps/discussion/models.py:56
+#: apps/competitions/models.py:229 apps/discussion/models.py:54
+#: apps/discussion/models.py:124
 #: universityofbigdata/apps/competitions/models.py:229
 #: universityofbigdata/apps/discussion/models.py:54
 #: universityofbigdata/apps/discussion/models.py:124
 msgid "投稿者ID"
 msgstr "投稿者ID"
 
-#: apps/competitions/models.py:184 apps/management/forms.py:105
-#: apps/management/forms.py:122 apps/management/templates/make_teams.html:35
+#: apps/competitions/models.py:230 apps/management/forms.py:161
+#: apps/management/forms.py:177 apps/management/templates/make_teams.html:35
 #: universityofbigdata/apps/competitions/models.py:230
 #: universityofbigdata/apps/management/forms.py:161
 #: universityofbigdata/apps/management/forms.py:177
@@ -783,33 +779,34 @@ msgstr "投稿者ID"
 msgid "チーム名"
 msgstr "チーム名"
 
-#: apps/competitions/models.py:185
+#: apps/competitions/models.py:231
 #: universityofbigdata/apps/competitions/models.py:231
 msgid "チームID"
 msgstr "チームID"
 
-#: apps/competitions/models.py:186
+#: apps/competitions/models.py:232
 #: apps/competitions/templates/competitions_post.html:37
 #: universityofbigdata/apps/competitions/models.py:232
 #: universityofbigdata/apps/competitions/templates/competitions_post.html:37
 msgid "この日の投稿回数"
 msgstr "この日の投稿回数"
 
-#: apps/competitions/models.py:187
+#: apps/competitions/models.py:233
 #: universityofbigdata/apps/competitions/models.py:233
 msgid "チームの総投稿回数"
 msgstr "チームの総投稿回数"
 
-#: apps/competitions/models.py:189
-#: apps/competitions/templates/competitions_main.html:52
+#: apps/competitions/models.py:235
+#: apps/competitions/templates/competitions_main.html:53
 #: apps/competitions/templates/competitions_ranking.html:26
 #: apps/competitions/templates/competitions_ranking.html:60
 #: apps/competitions/templates/competitions_ranking.html:102
 #: apps/competitions/templates/competitions_ranking.html:147
-#: apps/competitions/templates/competitions_ranking.html:177
-#: apps/competitions/templates/competitions_ranking.html:226
-#: apps/competitions/templates/competitions_ranking.html:272
-#: templates/participation_guide.html:60
+#: apps/competitions/templates/competitions_ranking.html:176
+#: apps/competitions/templates/competitions_ranking.html:217
+#: apps/competitions/templates/competitions_ranking.html:261
+#: apps/competitions/templates/competitions_ranking.html:300
+#: templates/participation_guide.html:61
 #: universityofbigdata/apps/competitions/models.py:235
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:53
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:26
@@ -823,13 +820,12 @@ msgstr "チームの総投稿回数"
 msgid "中間スコア"
 msgstr "中間スコア"
 
-#: apps/competitions/models.py:191
-#: apps/competitions/templates/competitions_main.html:53
+#: apps/competitions/models.py:238
+#: apps/competitions/templates/competitions_main.html:54
 #: apps/competitions/templates/competitions_ranking.html:148
-#: apps/competitions/templates/competitions_ranking.html:178
-#: apps/competitions/templates/competitions_ranking.html:227
-#: apps/competitions/templates/competitions_ranking.html:273
-#: templates/participation_guide.html:61
+#: apps/competitions/templates/competitions_ranking.html:262
+#: apps/competitions/templates/competitions_ranking.html:301
+#: templates/participation_guide.html:62
 #: universityofbigdata/apps/competitions/models.py:238
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:54
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:148
@@ -838,14 +834,13 @@ msgstr "中間スコア"
 msgid "最終スコア"
 msgstr "最終スコア"
 
-#: apps/competitions/models.py:225 apps/competitions/models.py:226
+#: apps/competitions/models.py:277 apps/competitions/models.py:278
 #: universityofbigdata/apps/competitions/models.py:277
 #: universityofbigdata/apps/competitions/models.py:278
 msgid "コンペティション投稿データ"
 msgstr "コンペティション投稿データ"
 
 #: apps/competitions/templates/competitions_base.html:12
-#: apps/competitions/templates/competitions_base_image.html:19
 #: apps/discussion/templates/discussion_base.html:12 templates/base.html:12
 #: templates/sub_base_limit.html:12
 #: universityofbigdata/apps/competitions/templates/competitions_base.html:12
@@ -869,11 +864,28 @@ msgstr ""
 "本プロジェクトの一部は、戦略的創造研究推進事業 CREST 「人とAIの協働ヒューマン"
 "コンピュテーション基盤」の支援を受けて実施されています。"
 
+#: apps/competitions/templates/competitions_base_image.html:19
+#: universityofbigdata/apps/competitions/templates/competitions_base_image.html:19
+#, fuzzy
+#| msgid "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
+msgid "ビッグデータ大学 for GeoSciAI 2026"
+msgstr "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
+
 #: apps/competitions/templates/competitions_base_image.html:20
+#: templates/top.html:23
+#: universityofbigdata/apps/competitions/templates/competitions_base_image.html:20
 msgid ""
-"ビッグデータ大学は、実際のデータ解析を通じてデータ解析の実践的技術を身に着け"
-"るための学びの場です。是非コンペティションに挑戦してみてください。"
+"ビッグデータ大学 for GeoSciAI 2026 は、GeoSciAI 2026 コンペティションのための"
+"コンペティションシステムです。"
 msgstr ""
+"ビッグデータ大学 for GeoSciAI 2026 は、GeoSciAI 2026 コンペティションのための"
+"コンペティションシステムです。"
+
+#: apps/competitions/templates/competitions_base_image.html:20
+#: templates/top.html:23
+#: universityofbigdata/apps/competitions/templates/competitions_base_image.html:20
+msgid "是非コンペティションに挑戦してみてください。"
+msgstr "是非コンペティションに挑戦してみてください。"
 
 #: apps/competitions/templates/competitions_base_nav.html:8
 #: universityofbigdata/apps/competitions/templates/competitions_base_nav.html:8
@@ -886,11 +898,10 @@ msgid "データ"
 msgstr "データ"
 
 #: apps/competitions/templates/competitions_base_nav.html:15
-#: apps/competitions/templates/competitions_post.html:45
-#: apps/competitions/templates/competitions_post.html:53
-#: apps/competitions/templates/competitions_post.html:55
+#: apps/competitions/templates/competitions_post.html:52
+#: apps/competitions/templates/competitions_post.html:54
+#: apps/competitions/templates/competitions_post.html:57
 #: apps/competitions/templates/competitions_post.html:59
-#: apps/competitions/templates/competitions_post.html:61
 #: apps/discussion/templates/discussion_competition.html:92
 #: apps/discussion/templates/discussion_post.html:120
 #: universityofbigdata/apps/competitions/templates/competitions_base_nav.html:15
@@ -1140,72 +1151,84 @@ msgstr "コンペティション参加方法"
 
 #: apps/competitions/templates/competitions_main.html:41
 #: templates/participation_guide.html:43
+#: universityofbigdata/apps/competitions/templates/competitions_main.html:41
+msgid "GeoSciAI 2026 オフィシャルサイト"
+msgstr "GeoSciAI 2026 オフィシャルサイト"
+
+#: apps/competitions/templates/competitions_main.html:41
+#: templates/participation_guide.html:43
+#: universityofbigdata/apps/competitions/templates/competitions_main.html:41
+msgid "にアクセスし、コンペティションの詳細を確認してください。"
+msgstr "にアクセスし、コンペティションの詳細を確認してください。"
+
+#: apps/competitions/templates/competitions_main.html:42
+#: templates/participation_guide.html:44
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:42
 msgid "まず各コンペティションのページから、"
 msgstr "まず各コンペティションのページから、"
 
-#: apps/competitions/templates/competitions_main.html:41
-#: templates/participation_guide.html:43
+#: apps/competitions/templates/competitions_main.html:42
+#: templates/participation_guide.html:44
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:42
 msgid "予測用データ"
 msgstr "予測用データ"
 
-#: apps/competitions/templates/competitions_main.html:41
-#: templates/participation_guide.html:43
+#: apps/competitions/templates/competitions_main.html:42
+#: templates/participation_guide.html:44
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:42
 msgid "をダウンロードしてください。"
 msgstr "をダウンロードしてください。"
 
-#: apps/competitions/templates/competitions_main.html:42
-#: templates/participation_guide.html:44
+#: apps/competitions/templates/competitions_main.html:43
+#: templates/participation_guide.html:45
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:43
 msgid "予測用データ中の"
 msgstr "予測用データ中の"
 
-#: apps/competitions/templates/competitions_main.html:42
-#: templates/participation_guide.html:44
+#: apps/competitions/templates/competitions_main.html:43
+#: templates/participation_guide.html:45
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:43
 msgid "訓練データ"
 msgstr "訓練データ"
 
-#: apps/competitions/templates/competitions_main.html:42
-#: templates/participation_guide.html:44
+#: apps/competitions/templates/competitions_main.html:43
+#: templates/participation_guide.html:45
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:43
 msgid "を用いて学習を行い、"
 msgstr "を用いて学習を行い、"
 
-#: apps/competitions/templates/competitions_main.html:42
-#: templates/participation_guide.html:44
+#: apps/competitions/templates/competitions_main.html:43
+#: templates/participation_guide.html:45
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:43
 msgid "テストデータ"
 msgstr "テストデータ"
 
-#: apps/competitions/templates/competitions_main.html:42
-#: templates/participation_guide.html:44
+#: apps/competitions/templates/competitions_main.html:43
+#: templates/participation_guide.html:45
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:43
 msgid "に対する予測結果を作成してください。"
 msgstr "に対する予測結果を作成してください。"
 
-#: apps/competitions/templates/competitions_main.html:43
-#: templates/participation_guide.html:45
+#: apps/competitions/templates/competitions_main.html:44
+#: templates/participation_guide.html:46
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:44
 msgid "各コンペティションのページで、"
 msgstr "各コンペティションのページで、"
 
-#: apps/competitions/templates/competitions_main.html:43
-#: templates/participation_guide.html:45
+#: apps/competitions/templates/competitions_main.html:44
+#: templates/participation_guide.html:46
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:44
 msgid "予測結果を提出"
 msgstr "予測結果を提出"
 
-#: apps/competitions/templates/competitions_main.html:43
-#: templates/participation_guide.html:45
+#: apps/competitions/templates/competitions_main.html:44
+#: templates/participation_guide.html:46
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:44
 msgid "してください。"
 msgstr "してください。"
 
-#: apps/competitions/templates/competitions_main.html:44
-#: templates/participation_guide.html:46
+#: apps/competitions/templates/competitions_main.html:45
+#: templates/participation_guide.html:47
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:45
 msgid ""
 "予測結果を提出すると、スコアが表示されます。スコアを参考にして、予測手法の改"
@@ -1214,13 +1237,13 @@ msgstr ""
 "予測結果を提出すると、スコアが表示されます。スコアを参考にして、予測手法の改"
 "善に取り組んでください。"
 
-#: apps/competitions/templates/competitions_main.html:47
-#: templates/participation_guide.html:55
+#: apps/competitions/templates/competitions_main.html:48
+#: templates/participation_guide.html:56
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:48
 msgid "コンペティションの基本ルール"
 msgstr "コンペティションの基本ルール"
 
-#: apps/competitions/templates/competitions_main.html:49
+#: apps/competitions/templates/competitions_main.html:50
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:50
 msgid ""
 "個別ページに明記されていない限りコンペティションは以下のルールに従って実施さ"
@@ -1229,57 +1252,57 @@ msgstr ""
 "個別ページに明記されていない限り、コンペティションは以下のルールに従って実施"
 "されるものとします。"
 
-#: apps/competitions/templates/competitions_main.html:51
-#: templates/participation_guide.html:59
+#: apps/competitions/templates/competitions_main.html:52
+#: templates/participation_guide.html:60
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:52
 msgid "予測結果は"
 msgstr "予測結果は"
 
-#: apps/competitions/templates/competitions_main.html:51
+#: apps/competitions/templates/competitions_main.html:52
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:52
 msgid "1日"
 msgstr "1日"
 
-#: apps/competitions/templates/competitions_main.html:51
+#: apps/competitions/templates/competitions_main.html:52
 #: apps/competitions/templates/competitions_post.html:28
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:52
 #: universityofbigdata/apps/competitions/templates/competitions_post.html:28
 msgid "回"
 msgstr "回"
 
-#: apps/competitions/templates/competitions_main.html:51
+#: apps/competitions/templates/competitions_main.html:52
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:52
 msgid "まで提出することができます。"
 msgstr "まで提出することができます。"
 
-#: apps/competitions/templates/competitions_main.html:52
-#: templates/participation_guide.html:60
+#: apps/competitions/templates/competitions_main.html:53
+#: templates/participation_guide.html:61
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:53
 msgid "予測結果提出時に提示されるスコアは"
 msgstr "予測結果提出時に提示されるスコアは"
 
-#: apps/competitions/templates/competitions_main.html:52
-#: templates/participation_guide.html:60
+#: apps/competitions/templates/competitions_main.html:53
+#: templates/participation_guide.html:61
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:53
 msgid "です。中間スコアは、テストデータの一部を対象にして算出されます。"
 msgstr "です。中間スコアは、テストデータの一部を対象にして算出されます。"
 
-#: apps/competitions/templates/competitions_main.html:53
-#: templates/participation_guide.html:61
+#: apps/competitions/templates/competitions_main.html:54
+#: templates/participation_guide.html:62
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:54
 msgid "コンペティション終了時に"
 msgstr "コンペティション終了時に"
 
-#: apps/competitions/templates/competitions_main.html:53
-#: templates/participation_guide.html:61
+#: apps/competitions/templates/competitions_main.html:54
+#: templates/participation_guide.html:62
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:54
 msgid ""
 "が算出されます。最終スコアは、残りのテストデータを対象にして算出されます。"
 msgstr ""
 "が算出されます。最終スコアは、残りのテストデータを対象にして算出されます。"
 
-#: apps/competitions/templates/competitions_main.html:54
-#: templates/participation_guide.html:62
+#: apps/competitions/templates/competitions_main.html:55
+#: templates/participation_guide.html:63
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:55
 msgid "最終的な順位は、最後に提出したモデルの最終スコアによって決定されます。"
 msgstr "最終的な順位は、最後に提出したモデルの最終スコアによって決定されます。"
@@ -1290,10 +1313,13 @@ msgid "予測結果の提出"
 msgstr "予測結果の提出"
 
 #: apps/competitions/templates/competitions_post.html:23
+#: universityofbigdata/apps/competitions/templates/competitions_post.html:23
 msgid ""
-"投稿データは、正解データのカラムのみのcsv形式ファイルとして提出してください。"
+"投稿データは、予測値のndarrayのみを含むnpz形式ファイルとして提出してくださ"
+"い。配列名はどのようなものでも構いません。"
 msgstr ""
-"投稿データは、正解データのカラムのみのcsv形式ファイルとして提出してください。"
+"投稿データは、予測値のndarrayのみを含むnpz形式ファイルとして提出してくださ"
+"い。配列名はどのようなものでも構いません。"
 
 #: apps/competitions/templates/competitions_post.html:24
 #: universityofbigdata/apps/competitions/templates/competitions_post.html:24
@@ -1310,23 +1336,24 @@ msgstr "本日投稿回数"
 msgid "最大投稿回数"
 msgstr "最大投稿回数"
 
-#: apps/competitions/templates/competitions_post.html:55
+#: apps/competitions/templates/competitions_post.html:54
 #: universityofbigdata/apps/competitions/templates/competitions_post.html:54
 msgid "投稿回数超過"
 msgstr "投稿回数超過"
 
-#: apps/competitions/templates/competitions_post.html:59
+#: apps/competitions/templates/competitions_post.html:57
 #: universityofbigdata/apps/competitions/templates/competitions_post.html:57
 msgid "開催期間前"
 msgstr "開催期間前"
 
-#: apps/competitions/templates/competitions_post.html:61
+#: apps/competitions/templates/competitions_post.html:59
 #: universityofbigdata/apps/competitions/templates/competitions_post.html:59
 msgid "期間終了"
 msgstr "期間終了"
 
 #: apps/competitions/templates/competitions_ranking.html:19
 #: apps/competitions/templates/competitions_ranking.html:53
+#: apps/competitions/templates/competitions_ranking.html:169
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:19
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:53
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:169
@@ -1336,7 +1363,8 @@ msgstr "チーム別ランキング"
 #: apps/competitions/templates/competitions_ranking.html:24
 #: apps/competitions/templates/competitions_ranking.html:58
 #: apps/competitions/templates/competitions_ranking.html:145
-#: apps/competitions/templates/competitions_ranking.html:270
+#: apps/competitions/templates/competitions_ranking.html:174
+#: apps/competitions/templates/competitions_ranking.html:298
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:24
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:58
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:145
@@ -1348,8 +1376,9 @@ msgstr "現在順位"
 #: apps/competitions/templates/competitions_ranking.html:25
 #: apps/competitions/templates/competitions_ranking.html:59
 #: apps/competitions/templates/competitions_ranking.html:146
-#: apps/competitions/templates/competitions_ranking.html:176
-#: apps/competitions/templates/competitions_ranking.html:271
+#: apps/competitions/templates/competitions_ranking.html:175
+#: apps/competitions/templates/competitions_ranking.html:260
+#: apps/competitions/templates/competitions_ranking.html:299
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:25
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:59
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:146
@@ -1363,9 +1392,10 @@ msgstr "提出チーム/提出者"
 #: apps/competitions/templates/competitions_ranking.html:61
 #: apps/competitions/templates/competitions_ranking.html:103
 #: apps/competitions/templates/competitions_ranking.html:149
-#: apps/competitions/templates/competitions_ranking.html:179
-#: apps/competitions/templates/competitions_ranking.html:228
-#: apps/competitions/templates/competitions_ranking.html:274
+#: apps/competitions/templates/competitions_ranking.html:177
+#: apps/competitions/templates/competitions_ranking.html:218
+#: apps/competitions/templates/competitions_ranking.html:263
+#: apps/competitions/templates/competitions_ranking.html:302
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:27
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:61
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:103
@@ -1380,7 +1410,8 @@ msgstr "提出日時"
 #: apps/competitions/templates/competitions_ranking.html:28
 #: apps/competitions/templates/competitions_ranking.html:62
 #: apps/competitions/templates/competitions_ranking.html:150
-#: apps/competitions/templates/competitions_ranking.html:275
+#: apps/competitions/templates/competitions_ranking.html:178
+#: apps/competitions/templates/competitions_ranking.html:303
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:28
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:62
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:150
@@ -1396,7 +1427,8 @@ msgstr "ランキングは、最新提出結果のスコアが表示されます
 
 #: apps/competitions/templates/competitions_ranking.html:43
 #: apps/competitions/templates/competitions_ranking.html:76
-#: apps/competitions/templates/competitions_ranking.html:200
+#: apps/competitions/templates/competitions_ranking.html:192
+#: apps/competitions/templates/competitions_ranking.html:283
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:43
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:76
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:192
@@ -1408,8 +1440,9 @@ msgstr "中間スコアはテストデータの"
 #: apps/competitions/templates/competitions_ranking.html:44
 #: apps/competitions/templates/competitions_ranking.html:76
 #: apps/competitions/templates/competitions_ranking.html:77
-#: apps/competitions/templates/competitions_ranking.html:200
-#: apps/competitions/templates/competitions_ranking.html:201
+#: apps/competitions/templates/competitions_ranking.html:192
+#: apps/competitions/templates/competitions_ranking.html:283
+#: apps/competitions/templates/competitions_ranking.html:284
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:43
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:44
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:76
@@ -1422,7 +1455,7 @@ msgstr "を使って算出されます。"
 
 #: apps/competitions/templates/competitions_ranking.html:44
 #: apps/competitions/templates/competitions_ranking.html:77
-#: apps/competitions/templates/competitions_ranking.html:201
+#: apps/competitions/templates/competitions_ranking.html:284
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:44
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:77
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:284
@@ -1431,7 +1464,7 @@ msgstr "最終スコアは残りの"
 
 #: apps/competitions/templates/competitions_ranking.html:45
 #: apps/competitions/templates/competitions_ranking.html:78
-#: apps/competitions/templates/competitions_ranking.html:202
+#: apps/competitions/templates/competitions_ranking.html:285
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:45
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:78
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:285
@@ -1444,50 +1477,50 @@ msgid "ランキングには、最新提出モデルのスコアが表示され�
 msgstr "ランキングには、最新提出モデルのスコアが表示されます。"
 
 #: apps/competitions/templates/competitions_ranking.html:88
-#: apps/competitions/templates/competitions_ranking.html:213
+#: apps/competitions/templates/competitions_ranking.html:204
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:88
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:204
 msgid "投稿履歴"
 msgstr "投稿履歴"
 
 #: apps/competitions/templates/competitions_ranking.html:99
-#: apps/competitions/templates/competitions_ranking.html:229
+#: apps/competitions/templates/competitions_ranking.html:219
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:99
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:219
 msgid "提出数(当日/総提出数)"
 msgstr "提出数(当日/総提出数)"
 
 #: apps/competitions/templates/competitions_ranking.html:100
-#: apps/competitions/templates/competitions_ranking.html:224
+#: apps/competitions/templates/competitions_ranking.html:215
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:100
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:215
 msgid "提出チーム"
 msgstr "提出チーム"
 
 #: apps/competitions/templates/competitions_ranking.html:101
-#: apps/competitions/templates/competitions_ranking.html:225
+#: apps/competitions/templates/competitions_ranking.html:216
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:101
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:216
 msgid "提出者"
 msgstr "提出者"
 
 #: apps/competitions/templates/competitions_ranking.html:132
-#: apps/competitions/templates/competitions_ranking.html:257
+#: apps/competitions/templates/competitions_ranking.html:246
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:132
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:246
 msgid "管理用情報"
 msgstr "管理用情報"
 
 #: apps/competitions/templates/competitions_ranking.html:139
-#: apps/competitions/templates/competitions_ranking.html:264
+#: apps/competitions/templates/competitions_ranking.html:292
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:139
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:292
 msgid "管理者用投稿別ランキング"
 msgstr "管理者用投稿別ランキング"
 
 #: apps/competitions/templates/competitions_ranking.html:144
-#: apps/competitions/templates/competitions_ranking.html:174
-#: apps/competitions/templates/competitions_ranking.html:269
+#: apps/competitions/templates/competitions_ranking.html:258
+#: apps/competitions/templates/competitions_ranking.html:297
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:144
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:258
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:297
@@ -1495,63 +1528,68 @@ msgid "最終順位"
 msgstr "最終順位"
 
 #: apps/competitions/templates/competitions_ranking.html:162
-#: apps/competitions/templates/competitions_ranking.html:287
+#: apps/competitions/templates/competitions_ranking.html:315
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:162
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:315
 msgid "管理用に追加した表示になっています。アドバイスなどに活用してください。"
 msgstr "管理用に追加した表示になっています。アドバイスなどに活用してください。"
 
-#: apps/competitions/templates/competitions_ranking.html:169
+#: apps/competitions/templates/competitions_ranking.html:191
+#: universityofbigdata/apps/competitions/templates/competitions_ranking.html:191
+msgid "開催終了しました。"
+msgstr "開催終了しました。"
+
+#: apps/competitions/templates/competitions_ranking.html:193
+#: universityofbigdata/apps/competitions/templates/competitions_ranking.html:193
+msgid "公開ランキングは中間スコアを表示します。"
+msgstr "ランキングは、最新提出結果のスコアが表示されます。"
+
+#: apps/competitions/templates/competitions_ranking.html:253
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:253
 msgid "最終ランキング"
 msgstr "最終ランキング"
 
-#: apps/competitions/templates/competitions_ranking.html:175
+#: apps/competitions/templates/competitions_ranking.html:259
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:259
 msgid "中間順位"
 msgstr "中間順位"
 
-#: apps/competitions/templates/competitions_ranking.html:180
+#: apps/competitions/templates/competitions_ranking.html:264
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:264
 msgid "総提出数"
 msgstr "総提出数"
-
-#: apps/competitions/templates/competitions_ranking.html:199
-#: universityofbigdata/apps/competitions/templates/competitions_ranking.html:191
-msgid "開催終了しました。"
-msgstr "開催終了しました。"
 
 #: apps/competitions/urls.py:13
 #: universityofbigdata/apps/competitions/urls.py:13
 msgid "コンペティション一覧ページ"
 msgstr "コンペティション一覧ページ"
 
-#: apps/competitions/urls.py:16
+#: apps/competitions/urls.py:21
 #: universityofbigdata/apps/competitions/urls.py:21
 msgid "コンペティションのメインページ"
 msgstr "コンペティションのメインページ"
 
-#: apps/competitions/urls.py:19
+#: apps/competitions/urls.py:28
 #: universityofbigdata/apps/competitions/urls.py:28
 msgid "コンペティションのデータページ"
 msgstr "コンペティションのデータページ"
 
-#: apps/competitions/urls.py:22
+#: apps/competitions/urls.py:35
 #: universityofbigdata/apps/competitions/urls.py:35
 msgid "コンペティションのデータ投稿ページ"
 msgstr "コンペティションのデータ投稿ページ"
 
-#: apps/competitions/urls.py:25
+#: apps/competitions/urls.py:42
 #: universityofbigdata/apps/competitions/urls.py:42
 msgid "コンペティションのリーダーボード"
 msgstr "コンペティションのリーダーボード"
 
-#: apps/competitions/views.py:108 apps/competitions/views.py:129
-#: apps/competitions/views.py:304 apps/discussion/views.py:42
-#: apps/discussion/views.py:139 apps/management/views.py:98
-#: apps/management/views.py:106 apps/management/views.py:178
-#: apps/management/views.py:234 apps/management/views.py:291
-#: apps/management/views.py:351 apps/management/views.py:401
+#: apps/competitions/views.py:122 apps/competitions/views.py:144
+#: apps/competitions/views.py:338 apps/discussion/views.py:46
+#: apps/discussion/views.py:151 apps/management/views.py:102
+#: apps/management/views.py:111 apps/management/views.py:184
+#: apps/management/views.py:243 apps/management/views.py:302
+#: apps/management/views.py:367 apps/management/views.py:420
 #: universityofbigdata/apps/competitions/views.py:122
 #: universityofbigdata/apps/competitions/views.py:144
 #: universityofbigdata/apps/competitions/views.py:338
@@ -1567,61 +1605,90 @@ msgstr "コンペティションのリーダーボード"
 msgid "No MyModel matches the given query."
 msgstr "No MyModel matches the given query."
 
-#: apps/competitions/views.py:332
+#: apps/competitions/views.py:367
 #: universityofbigdata/apps/competitions/views.py:367
 msgid "投稿に失敗しました: 一日の最大投稿回数を越えています"
 msgstr "投稿に失敗しました: 一日の最大投稿回数を越えています"
 
-#: apps/competitions/views.py:355
+#: apps/competitions/views.py:393
 #: universityofbigdata/apps/competitions/views.py:393
 msgid "投稿に失敗しました: データサイズが異なります"
 msgstr "投稿に失敗しました: データサイズが異なります"
 
-#: apps/competitions/views.py:381
+#: apps/competitions/views.py:395
+#: universityofbigdata/apps/competitions/views.py:395
+msgid "投稿に失敗しました: 投稿ファイルのnpz形式が不正です"
+msgstr "投稿に失敗しました: 投稿ファイルのnpz形式が不正です"
+
+#: apps/competitions/views.py:398
+#: universityofbigdata/apps/competitions/views.py:398
+msgid ""
+"投稿に失敗しました: 正解データの形式が不正です。主催者に連絡してください"
+msgstr ""
+"投稿に失敗しました: 正解データの形式が不正です。主催者に連絡してください"
+
+#: apps/competitions/views.py:401
+#: universityofbigdata/apps/competitions/views.py:401
+msgid "投稿に失敗しました: 評価処理でエラーが発生しました"
+msgstr "投稿に失敗しました: 評価処理でエラーが発生しました"
+
+#: apps/competitions/views.py:420
+#: universityofbigdata/apps/competitions/views.py:420
+msgid ""
+"投稿に失敗しました: 投稿データと正解データの形式が評価指標に対応していません"
+msgstr ""
+"投稿に失敗しました: 投稿データと正解データの形式が評価指標に対応していません"
+
+#: apps/competitions/views.py:438
+#: universityofbigdata/apps/competitions/views.py:438
+msgid "投稿に失敗しました: 予期しないエラーが発生しました"
+msgstr "投稿に失敗しました: 予期しないエラーが発生しました"
+
+#: apps/competitions/views.py:466
 #: universityofbigdata/apps/competitions/views.py:466
 msgid "投稿に成功しました"
 msgstr "投稿に成功しました"
 
-#: apps/competitions/views.py:394
+#: apps/competitions/views.py:482
 #: universityofbigdata/apps/competitions/views.py:482
 msgid "投稿に失敗しました: フォームへの入力内容に問題があります"
 msgstr "投稿に失敗しました: フォームへの入力内容に問題があります"
 
-#: apps/discussion/models.py:17
+#: apps/discussion/models.py:19
 #: universityofbigdata/apps/discussion/models.py:19
 msgid "題名"
 msgstr "題名"
 
-#: apps/discussion/models.py:22 apps/discussion/models.py:53
-#: apps/discussion/models.py:62
+#: apps/discussion/models.py:43 apps/discussion/models.py:113
+#: apps/discussion/models.py:143
 #: universityofbigdata/apps/discussion/models.py:43
 #: universityofbigdata/apps/discussion/models.py:113
 #: universityofbigdata/apps/discussion/models.py:143
 msgid "コメント"
 msgstr "コメント"
 
-#: apps/discussion/models.py:27 apps/discussion/models.py:58
+#: apps/discussion/models.py:67 apps/discussion/models.py:137
 #: universityofbigdata/apps/discussion/models.py:67
 #: universityofbigdata/apps/discussion/models.py:137
 msgid "投稿チームID"
 msgstr "投稿チームID"
 
-#: apps/discussion/models.py:30
+#: apps/discussion/models.py:72
 #: universityofbigdata/apps/discussion/models.py:72
 msgid "DiscussionComment"
 msgstr "DiscussionComment"
 
-#: apps/discussion/models.py:31
+#: apps/discussion/models.py:73
 #: universityofbigdata/apps/discussion/models.py:73
 msgid "議論コメント"
 msgstr "議論コメント"
 
-#: apps/discussion/models.py:49
+#: apps/discussion/models.py:95
 #: universityofbigdata/apps/discussion/models.py:95
 msgid "議論板"
 msgstr "議論板"
 
-#: apps/discussion/models.py:61
+#: apps/discussion/models.py:142
 #: universityofbigdata/apps/discussion/models.py:142
 msgid "Comment"
 msgstr "コメント"
@@ -1701,19 +1768,55 @@ msgstr "登録者のみ投稿可能"
 msgid "コメント投稿フォーム"
 msgstr "コメント投稿フォーム"
 
-#: apps/discussion/urls.py:12 universityofbigdata/apps/discussion/urls.py:13
+#: apps/discussion/urls.py:13 universityofbigdata/apps/discussion/urls.py:13
 msgid "議論ページ"
 msgstr "議論ページ"
 
-#: apps/discussion/urls.py:16 universityofbigdata/apps/discussion/urls.py:20
+#: apps/discussion/urls.py:20 universityofbigdata/apps/discussion/urls.py:20
 msgid "議論トピックページ"
 msgstr "議論トピックページ"
 
-#: apps/management/forms.py:88 universityofbigdata/apps/management/forms.py:92
+#: apps/management/forms.py:92 universityofbigdata/apps/management/forms.py:92
 msgid "スコア表示の小数点以下の桁数"
 msgstr "スコア表示の小数点以下の桁数"
 
-#: apps/management/forms.py:147
+#: apps/management/forms.py:101
+#: universityofbigdata/apps/management/forms.py:101
+msgid "正解データファイルの拡張子はnpzのみです"
+msgstr "正解データファイルの拡張子はnpzのみです"
+
+#: apps/management/forms.py:112
+#: universityofbigdata/apps/management/forms.py:112
+msgid ""
+"正解データnpzには label, public_indices, private_indices の3キーが必要です"
+msgstr ""
+"正解データnpzには label, public_indices, private_indices の3キーが必要です"
+
+#: apps/management/forms.py:125
+#: universityofbigdata/apps/management/forms.py:125
+msgid ""
+"public_indices と private_indices の要素数合計が label の要素数と一致していま"
+"せん"
+msgstr ""
+"public_indices と private_indices の要素数合計が label の要素数と一致していま"
+"せん"
+
+#: apps/management/forms.py:131
+#: universityofbigdata/apps/management/forms.py:131
+msgid "public_indices と private_indices に重複があります"
+msgstr "public_indices と private_indices に重複があります"
+
+#: apps/management/forms.py:136
+#: universityofbigdata/apps/management/forms.py:136
+msgid "public_indices または private_indices が範囲外です"
+msgstr "public_indices または private_indices が範囲外です"
+
+#: apps/management/forms.py:141
+#: universityofbigdata/apps/management/forms.py:141
+msgid "正解データnpzの読み込みに失敗しました"
+msgstr "正解データnpzの読み込みに失敗しました"
+
+#: apps/management/forms.py:204
 #: universityofbigdata/apps/management/forms.py:204
 msgid ""
 "コンペティションで使用するニックネームを英数字で入力してください。ニックネー"
@@ -1722,18 +1825,18 @@ msgstr ""
 "コンペティションで使用するニックネームを英数字で入力してください。ニックネー"
 "ムは本サイト上で公開されます。<br>ニックネームは登録後に変更可能です。"
 
-#: apps/management/forms.py:149
+#: apps/management/forms.py:207
 #: universityofbigdata/apps/management/forms.py:207
 msgid "参加者権限"
 msgstr "参加者権限"
 
-#: apps/management/forms.py:150
+#: apps/management/forms.py:208
 #: universityofbigdata/apps/management/forms.py:208
 msgid "有効/無効"
 msgstr "有効/無効"
 
-#: apps/management/forms.py:165 apps/management/models.py:9
-#: apps/management/models.py:10
+#: apps/management/forms.py:221 apps/management/models.py:11
+#: apps/management/models.py:12
 #: universityofbigdata/apps/management/forms.py:221
 #: universityofbigdata/apps/management/models.py:11
 #: universityofbigdata/apps/management/models.py:12
@@ -1881,15 +1984,15 @@ msgstr "参加申請者への参加承認または承認取消を行います。
 msgid "email"
 msgstr "eメール"
 
-#: apps/management/templates/registration_users.html:33
+#: apps/management/templates/registration_users.html:32
 #: universityofbigdata/apps/management/templates/registration_users.html:32
 msgid "参加認証"
 msgstr "参加認証"
 
-#: apps/management/templates/registration_users.html:44
-#: apps/management/templates/registration_users.html:49
-#: apps/management/templates/registration_users.html:58
-#: apps/management/templates/suspension_users.html:59
+#: apps/management/templates/registration_users.html:42
+#: apps/management/templates/registration_users.html:47
+#: apps/management/templates/registration_users.html:56
+#: apps/management/templates/suspension_users.html:57
 #: universityofbigdata/apps/management/templates/registration_users.html:42
 #: universityofbigdata/apps/management/templates/registration_users.html:47
 #: universityofbigdata/apps/management/templates/registration_users.html:56
@@ -1897,8 +2000,8 @@ msgstr "参加認証"
 msgid "承認"
 msgstr "承認"
 
-#: apps/management/templates/registration_users.html:46
-#: apps/management/templates/registration_users.html:51
+#: apps/management/templates/registration_users.html:44
+#: apps/management/templates/registration_users.html:49
 #: universityofbigdata/apps/management/templates/registration_users.html:44
 #: universityofbigdata/apps/management/templates/registration_users.html:49
 msgid "取消"
@@ -1915,20 +2018,20 @@ msgstr "ユーザーアカウント制御"
 msgid "ユーザーアカウントを無効化または有効化します。"
 msgstr "ユーザーアカウントを無効化または有効化します。"
 
-#: apps/management/templates/suspension_users.html:33
+#: apps/management/templates/suspension_users.html:32
 #: universityofbigdata/apps/management/templates/suspension_users.html:32
 msgid "アカウント可否"
 msgstr "アカウント可否"
 
-#: apps/management/templates/suspension_users.html:45
-#: apps/management/templates/suspension_users.html:50
+#: apps/management/templates/suspension_users.html:43
+#: apps/management/templates/suspension_users.html:48
 #: universityofbigdata/apps/management/templates/suspension_users.html:43
 #: universityofbigdata/apps/management/templates/suspension_users.html:48
 msgid "有効"
 msgstr "有効"
 
-#: apps/management/templates/suspension_users.html:47
-#: apps/management/templates/suspension_users.html:52
+#: apps/management/templates/suspension_users.html:45
+#: apps/management/templates/suspension_users.html:50
 #: universityofbigdata/apps/management/templates/suspension_users.html:45
 #: universityofbigdata/apps/management/templates/suspension_users.html:50
 msgid "無効"
@@ -1938,75 +2041,75 @@ msgstr "無効"
 msgid "コンペティション作成ページ"
 msgstr "コンペティション作成ページ"
 
-#: apps/management/urls.py:15 universityofbigdata/apps/management/urls.py:19
+#: apps/management/urls.py:19 universityofbigdata/apps/management/urls.py:19
 msgid "非公開コンペティション設定ページ"
 msgstr "非公開コンペティション設定ページ"
 
-#: apps/management/urls.py:19 universityofbigdata/apps/management/urls.py:25
+#: apps/management/urls.py:25 universityofbigdata/apps/management/urls.py:25
 msgid "チーム作成ページ"
 msgstr "チーム作成ページ"
 
-#: apps/management/urls.py:22 universityofbigdata/apps/management/urls.py:32
+#: apps/management/urls.py:32 universityofbigdata/apps/management/urls.py:32
 msgid "チーム管理ページ"
 msgstr "チーム管理ページ"
 
-#: apps/management/urls.py:25 universityofbigdata/apps/management/urls.py:39
+#: apps/management/urls.py:39 universityofbigdata/apps/management/urls.py:39
 msgid "ユーザー管理ページ"
 msgstr "ユーザー管理ページ"
 
-#: apps/management/urls.py:28 universityofbigdata/apps/management/urls.py:46
+#: apps/management/urls.py:46 universityofbigdata/apps/management/urls.py:46
 msgid "ユーザー登録ページ"
 msgstr "ユーザー管理ページ"
 
-#: apps/management/urls.py:31 universityofbigdata/apps/management/urls.py:53
+#: apps/management/urls.py:53 universityofbigdata/apps/management/urls.py:53
 msgid "参加認証コード設定ページ"
 msgstr "参加認証コード設定"
 
-#: apps/management/views.py:31 universityofbigdata/apps/management/views.py:36
+#: apps/management/views.py:36 universityofbigdata/apps/management/views.py:36
 msgid "コンペティション作成に失敗しました: "
 msgstr "コンペティション作成に失敗しました: "
 
-#: apps/management/views.py:44 universityofbigdata/apps/management/views.py:49
+#: apps/management/views.py:49 universityofbigdata/apps/management/views.py:49
 msgid "コンペティションを作成しました"
 msgstr "コンペティションを作成しました"
 
-#: static/lib/metric_base.py:88
+#: static/lib/metric_base.py:120
 msgid "二乗平均誤差"
 msgstr "二乗平均誤差"
 
-#: static/lib/metric_base.py:98
+#: static/lib/metric_base.py:129
 msgid "平均絶対誤差"
 msgstr "平均絶対誤差"
 
-#: static/lib/metric_base.py:108
+#: static/lib/metric_base.py:138
 msgid "二乗平均平方根誤差"
 msgstr "二乗平均平方根誤差"
 
-#: static/lib/metric_base.py:118
+#: static/lib/metric_base.py:149
 msgid "Area under the ROC curve (AUC)"
 msgstr "Area under the ROC curve (AUC)"
 
-#: static/lib/metric_base.py:128
+#: static/lib/metric_base.py:158
 msgid "正解率"
 msgstr "正解率"
 
-#: static/lib/metric_base.py:138
+#: static/lib/metric_base.py:167
 msgid "適合率"
 msgstr "適合率"
 
-#: static/lib/metric_base.py:150
+#: static/lib/metric_base.py:178
 msgid "再現率"
 msgstr "再現率"
 
-#: static/lib/metric_base.py:162
+#: static/lib/metric_base.py:189
 msgid "f値"
 msgstr "f値"
 
-#: static/lib/metric_base.py:174
+#: static/lib/metric_base.py:198
 msgid "Exact Match Ratio"
 msgstr "Exact Match Ratio"
 
-#: static/lib/user_defined_example.py:9
+#: static/lib/user_defined_example.py:10
 msgid "カスタム指標"
 msgstr "カスタム指標"
 
@@ -2134,7 +2237,7 @@ msgstr "すでにGoogleアカウントをお持ちの方は"
 msgid "して、登録に進んでください。"
 msgstr "して、登録に進んでください。"
 
-#: templates/participation_guide.html:57
+#: templates/participation_guide.html:58
 msgid ""
 "個別ページに明記されていない限り、コンペティションは以下のルールに従って実施"
 "されるものとします。"
@@ -2142,11 +2245,11 @@ msgstr ""
 "個別ページに明記されていない限り、コンペティションは以下のルールに従って実施"
 "されるものとします。"
 
-#: templates/participation_guide.html:59
+#: templates/participation_guide.html:60
 msgid "1日既定の回数"
 msgstr "1日既定の回数"
 
-#: templates/participation_guide.html:59
+#: templates/participation_guide.html:60
 msgid ""
 "まで提出することができます。(回数はコンペティション概要で説明されます。)"
 msgstr ""
@@ -2155,19 +2258,8 @@ msgstr ""
 #: templates/top.html:22
 #, fuzzy
 #| msgid "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
-msgid "ビッグデータ大学へようこそ"
+msgid "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
 msgstr "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
-
-#: templates/top.html:23
-msgid ""
-"ビッグデータ大学は、実際のデータ解析を通じてデータ解析の実践的技術を身に着け"
-"るための学びの場です。"
-msgstr ""
-
-#: templates/top.html:23
-#: universityofbigdata/apps/competitions/templates/competitions_base_image.html:20
-msgid "是非コンペティションに挑戦してみてください。"
-msgstr "是非コンペティションに挑戦してみてください。"
 
 #: templates/top.html:26
 msgid "参加方法を確認する"
@@ -2186,10 +2278,16 @@ msgid "ログインする"
 msgstr "ログインする"
 
 #: templates/top.html:40
-msgid ""
-"また、本サービスは講義等におけるデータ解析演習のプラットフォームとしてもご利"
-"用いただけます。"
-msgstr ""
+msgid "GeoSciAI 2026 オフィシャルサイトは"
+msgstr "GeoSciAI 2026 オフィシャルサイトは"
+
+#: templates/top.html:40
+msgid "こちら"
+msgstr "こちら"
+
+#: templates/top.html:40
+msgid "です。"
+msgstr "です。"
 
 #: templates/top.html:50
 msgid "登録者数"
@@ -2239,113 +2337,6 @@ msgstr " これから開催されるコンペティション"
 msgid "現在開催予定のコンペティションはありません"
 msgstr "現在開催予定のコンペティションはありません"
 
-#: universityofbigdata/apps/accounts/forms.py:26
-#: universityofbigdata/apps/accounts/forms.py:57
-#: universityofbigdata/apps/management/forms.py:200
-msgid ""
-"入力例：「bigdata001」。英数字で入力してください。テクニカルペーパーで報告を"
-"していただきます。"
-msgstr ""
-"入力例：「bigdata001」。英字で入力してください。テクニカルペーパーで報告をし"
-"ていただきます。"
-
-#: universityofbigdata/apps/competitions/forms.py:99
-#: universityofbigdata/apps/competitions/test_forms.py:41
-msgid "拡張子はnpzのみです"
-msgstr "拡張子はnpzのみです"
-
-#: universityofbigdata/apps/competitions/models.py:86
-msgid "回帰問題（予測値は連続値）"
-msgstr "回帰問題（予測値は連続値）"
-
-#: universityofbigdata/apps/competitions/templates/competitions_base_image.html:19
-#, fuzzy
-#| msgid "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
-msgid "ビッグデータ大学 for GeoSciAI 2026"
-msgstr "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
-
-#: universityofbigdata/apps/competitions/templates/competitions_base_image.html:20
-msgid ""
-"ビッグデータ大学 for GeoSciAI 2026 は、GeoSciAI 2026 コンペティションのための"
-"コンペティションシステムです。"
-msgstr ""
-"ビッグデータ大学 for GeoSciAI 2026 は、GeoSciAI 2026 コンペティションのための"
-"コンペティションシステムです。"
-
-#: universityofbigdata/apps/competitions/templates/competitions_main.html:41
-msgid "GeoSciAI 2026 オフィシャルサイト"
-msgstr "GeoSciAI 2026 オフィシャルサイト"
-
-#: universityofbigdata/apps/competitions/templates/competitions_main.html:41
-msgid "にアクセスし、コンペティションの詳細を確認してください。"
-msgstr "にアクセスし、コンペティションの詳細を確認してください。"
-
-#: universityofbigdata/apps/competitions/templates/competitions_post.html:23
-msgid ""
-"投稿データは、予測値のndarrayのみを含むnpz形式ファイルとして提出してくださ"
-"い。配列名はどのようなものでも構いません。"
-msgstr ""
-"投稿データは、予測値のndarrayのみを含むnpz形式ファイルとして提出してくださ"
-"い。配列名はどのようなものでも構いません。"
-
-#: universityofbigdata/apps/competitions/templates/competitions_ranking.html:193
-msgid "公開ランキングは中間スコアを表示します。"
-msgstr "ランキングは、最新提出結果のスコアが表示されます。"
-
-#: universityofbigdata/apps/competitions/views.py:395
-msgid "投稿に失敗しました: 投稿ファイルのnpz形式が不正です"
-msgstr "投稿に失敗しました: 投稿ファイルのnpz形式が不正です"
-
-#: universityofbigdata/apps/competitions/views.py:398
-msgid ""
-"投稿に失敗しました: 正解データの形式が不正です。主催者に連絡してください"
-msgstr ""
-"投稿に失敗しました: 正解データの形式が不正です。主催者に連絡してください"
-
-#: universityofbigdata/apps/competitions/views.py:401
-msgid "投稿に失敗しました: 評価処理でエラーが発生しました"
-msgstr "投稿に失敗しました: 評価処理でエラーが発生しました"
-
-#: universityofbigdata/apps/competitions/views.py:420
-msgid ""
-"投稿に失敗しました: 投稿データと正解データの形式が評価指標に対応していません"
-msgstr ""
-"投稿に失敗しました: 投稿データと正解データの形式が評価指標に対応していません"
-
-#: universityofbigdata/apps/competitions/views.py:438
-msgid "投稿に失敗しました: 予期しないエラーが発生しました"
-msgstr "投稿に失敗しました: 予期しないエラーが発生しました"
-
-#: universityofbigdata/apps/management/forms.py:101
-msgid "正解データファイルの拡張子はnpzのみです"
-msgstr "正解データファイルの拡張子はnpzのみです"
-
-#: universityofbigdata/apps/management/forms.py:112
-msgid ""
-"正解データnpzには label, public_indices, private_indices の3キーが必要です"
-msgstr ""
-"正解データnpzには label, public_indices, private_indices の3キーが必要です"
-
-#: universityofbigdata/apps/management/forms.py:125
-msgid ""
-"public_indices と private_indices の要素数合計が label の要素数と一致していま"
-"せん"
-msgstr ""
-"public_indices と private_indices の要素数合計が label の要素数と一致していま"
-"せん"
-
-#: universityofbigdata/apps/management/forms.py:131
-msgid "public_indices と private_indices に重複があります"
-msgstr "public_indices と private_indices に重複があります"
-
-#: universityofbigdata/apps/management/forms.py:136
-msgid "public_indices または private_indices が範囲外です"
-msgstr "public_indices または private_indices が範囲外です"
-
-#: universityofbigdata/apps/management/forms.py:141
-msgid "正解データnpzの読み込みに失敗しました"
-msgstr "正解データnpzの読み込みに失敗しました"
-
 #: universityofbigdata/settings/base.py:160
 msgid "日本語"
 msgstr "日本語"
@@ -2362,11 +2353,26 @@ msgstr "トップページ"
 msgid "実装されていないページ"
 msgstr "実装されていないページ"
 
-#~ msgid "GeoSciAI 2026 オフィシャルサイトは"
-#~ msgstr "GeoSciAI 2026 オフィシャルサイトは"
+#~ msgid "入力例：「bigdata001」。英数字で入力してください。"
+#~ msgstr "入力例：「bigdata001」。英字で入力してください。"
 
-#~ msgid "こちら"
-#~ msgstr "こちら"
+#~ msgid "拡張子はcsvのみです"
+#~ msgstr "拡張子はcsvのみです"
+
+#~ msgid "回帰"
+#~ msgstr "回帰"
+
+#~ msgid ""
+#~ "投稿データは、正解データのカラムのみのcsv形式ファイルとして提出してくださ"
+#~ "い。"
+#~ msgstr ""
+#~ "投稿データは、正解データのカラムのみのcsv形式ファイルとして提出してくださ"
+#~ "い。"
+
+#, fuzzy
+#~| msgid "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
+#~ msgid "ビッグデータ大学へようこそ"
+#~ msgstr "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
 
 #~ msgid "一般設定ページ"
 #~ msgstr "一般設定ページ"
@@ -2420,9 +2426,6 @@ msgstr "実装されていないページ"
 
 #~ msgid "優勝者チームは"
 #~ msgstr "優勝者チームは"
-
-#~ msgid "です。"
-#~ msgstr "です。"
 
 #~ msgid "コンペティションリスト"
 #~ msgstr "コンペティションリスト"
