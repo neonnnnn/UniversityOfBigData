@@ -1279,8 +1279,9 @@ msgstr "The score presented when submitting the prediction result is "
 #: apps/competitions/templates/competitions_main.html:54
 #: templates/participation_guide.html:61
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:54
-msgid: "中間スコア"
-mststr: "an intermediate score "
+msgctxt "competition rule inline term"
+msgid "中間スコア"
+msgstr "an intermediate score "
 
 #: apps/competitions/templates/competitions_main.html:54
 #: templates/participation_guide.html:61
@@ -1297,6 +1298,7 @@ msgstr "The "
 #: apps/competitions/templates/competitions_main.html:55
 #: templates/participation_guide.html:62
 #: universityofbigdata/apps/competitions/templates/competitions_main.html:55
+msgctxt "competition rule inline term"
 msgid "最終スコア"
 msgstr "final score "
 

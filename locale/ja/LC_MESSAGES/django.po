@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-16 22:31+0900\n"
+"POT-Creation-Date: 2026-03-16 22:47+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -808,7 +808,6 @@ msgstr "チームの総投稿回数"
 #: apps/competitions/templates/competitions_ranking.html:301
 #: templates/participation_guide.html:61
 #: universityofbigdata/apps/competitions/models.py:235
-#: universityofbigdata/apps/competitions/templates/competitions_main.html:54
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:27
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:61
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:103
@@ -827,7 +826,6 @@ msgstr "中間スコア"
 #: apps/competitions/templates/competitions_ranking.html:302
 #: templates/participation_guide.html:62
 #: universityofbigdata/apps/competitions/models.py:238
-#: universityofbigdata/apps/competitions/templates/competitions_main.html:55
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:149
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:263
 #: universityofbigdata/apps/competitions/templates/competitions_ranking.html:302
@@ -2256,7 +2254,6 @@ msgstr ""
 "まで提出することができます。(回数はコンペティション概要で説明されます。)"
 
 #: templates/top.html:22
-#| msgid "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
 msgid "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
 msgstr "ビッグデータ大学 for GeoSciAI 2026 へようこそ"
 
@@ -2335,6 +2332,20 @@ msgstr " これから開催されるコンペティション"
 #: templates/top.html:131
 msgid "現在開催予定のコンペティションはありません"
 msgstr "現在開催予定のコンペティションはありません"
+
+#: universityofbigdata/apps/competitions/templates/competitions_main.html:54
+#, fuzzy
+#| msgid "中間スコア"
+msgctxt "competition rule inline term"
+msgid "中間スコア"
+msgstr "中間スコア"
+
+#: universityofbigdata/apps/competitions/templates/competitions_main.html:55
+#, fuzzy
+#| msgid "最終スコア"
+msgctxt "competition rule inline term"
+msgid "最終スコア"
+msgstr "最終スコア"
 
 #: universityofbigdata/settings/base.py:160
 msgid "日本語"
