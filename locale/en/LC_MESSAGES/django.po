@@ -2363,7 +2363,7 @@ msgid ""
 "せん"
 msgstr ""
 "The total number of elements in public_indices and private_indices "
-"does not match the size of label.
+"does not match the size of label."
 
 #: universityofbigdata/apps/management/forms.py:131
 msgid "public_indices と private_indices に重複があります"
