@@ -25,11 +25,11 @@
       <h6>{% if LANGUAGE_CODE == 'en' and competition.competition_description_en %}{{competition.competition_description_en | linebreaksbr}}{% else %}{{competition.competition_description | linebreaksbr}}{% endif %}</h6>
       <br><hr>
       <h5> {% trans "問題設定" %}</h5>
-      <h6>{% trans "問題の種類 : " %} {{competition.problem_type}}</h6>
-      <h6>{% trans "評価指標   : " %} {{competition.evaluation_type}}</h6>
+      <h6>{% trans "問題の種類 : " %} {{competition.get_problem_type_display}}</h6>
+      <h6>{% trans "評価指標   : " %} {{competition.get_evaluation_type_display}}</h6>
       <hr>
       <h5> {% trans "開催期間" %}</h5>
-      <h6>{% trans "状態　     : " %} {{competition.status}}</h6>
+      <h6>{% trans "状態　     : " %} {{competition.get_status_display}}</h6>
       <h6>{% trans "開始日     : " %} {{competition.open_datetime}}</h6>
       <h6>{% trans "終了日     : " %} {{competition.close_datetime}}</h6>
       <hr>
