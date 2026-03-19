@@ -2280,8 +2280,8 @@ msgid "参加登録済み"
 msgstr "Registered"
 
 #: templates/top.html:32
-msgid "登録コード入力"
-msgstr "Enter registration code"
+msgid "認証コード入力"
+msgstr "Enter invitation code"
 
 #: templates/top.html:34
 msgid "ログインする"

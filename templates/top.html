@@ -29,7 +29,7 @@
                 <a href="#" class="btn btn-danger" type="button">{% trans "参加登録済み"%}</a>
               {% else %}
                   {% if user.is_authenticated %}
-                      <a href="{% url 'login_required' %}" class="btn btn-danger" type="button">{% trans "登録コード入力"%}</a>
+                      <a href="{% url 'login_required' %}" class="btn btn-danger" type="button">{% trans "認証コード入力"%}</a>
                   {% else %}
                       <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-danger" type="button">{% trans "ログインする"%}</a>
                   {% endif %}
